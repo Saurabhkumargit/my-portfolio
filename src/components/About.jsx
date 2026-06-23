@@ -26,16 +26,22 @@ export default function About() {
         </h2>
 
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-5 lg:mt-10">
-          I'm a passionate full-stack developer specializing in **React.js & Node.js**. I thrive on blending technical expertise with sleek UI/UX design to build high-performing, user-friendly applications.
+          I'm a Full Stack Engineer focused on building scalable applications, backend systems, and cloud-native infrastructure.
         </p>
 
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
-          My web development journey started in **2015**, and since then, I've continuously evolved, taking on new challenges and keeping up with the latest technologies. Today, I build **cutting-edge web applications** using **Next.js, TypeScript, NestJS, TailwindCSS, Supabase, and more**.
+          I enjoy working on real-time applications, observability platforms, deployment automation, and modern web architectures. My goal is to build fault-tolerant systems and efficient CI/CD pipelines that streamline the engineering lifecycle.
         </p>
 
-        <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
-          Beyond coding, I enjoy sharing insights on **Twitter**, engaging with **Indie Hackers**, and following the journey of **early-stage startups**. Feel free to follow me on **Twitter** or check out my projects on **GitHub**.
-        </p>
+        <div className="mt-6 lg:mt-8 p-5 rounded border border-[#D4D4D8] bg-[#FAFAFA]">
+          <h3 className="font-bold text-lg mb-2">Education</h3>
+          <p className="font-semibold text-black">B.Tech Information Technology</p>
+          <p className="text-[#71717A] text-sm">Bharati Vidyapeeth's College of Engineering</p>
+          <div className="flex justify-between mt-2 text-sm text-[#71717A]">
+            <span>Expected Graduation: 2027</span>
+            <span className="font-semibold text-black">CGPA: 8.22</span>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

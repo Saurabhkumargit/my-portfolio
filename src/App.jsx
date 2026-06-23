@@ -6,6 +6,8 @@ import About from './components/About'
 import Footer from './components/Footer'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
+import Experience from './components/Experience'
+import Blog from './components/Blog'
 import CustomCursor from './utils/CursorAnimation'
 
 export default function App() {
@@ -14,9 +16,11 @@ export default function App() {
       <CustomCursor/>
       <Navbar />
       <Home />
-      <Skills />
       <About />
+      <Skills />
       <Projects />
+      <Experience />
+      <Blog />
       <Contact />
 
       <Footer />
