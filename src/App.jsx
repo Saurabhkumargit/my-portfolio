@@ -16,10 +16,10 @@ export default function App() {
       <CustomCursor/>
       <Navbar />
       <Home />
-      <About />
-      <Skills />
-      <Projects />
       <Experience />
+      <About />
+      <Projects />
+      <Skills />
       <Blog />
       <Contact />
 
