@@ -7,8 +7,7 @@ export default function Footer() {
       <img className='invert h-5 lg:h-9' src={logo} alt="" />
 
       <div className='text-white lg:font-semibold lg:text-sm font-normal text-[10px] text-right lg:space-y-3'>
-        <p>© 2025 Saurabh Kumar Tiwari</p>
-        <p>Made by -SK</p>
+        <p>© 2026 Saurabh Kumar Tiwari</p>
       </div>
     </div>
   )
