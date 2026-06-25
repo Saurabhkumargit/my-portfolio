@@ -48,8 +48,8 @@ export default function Contact() {
                 link: "mailto:saurabhkumar.t21@gmail.com",
                 label: "saurabhkumar.t21@gmail.com",
               },
-              { Icon: IoLogoLinkedin, link: "#", label: "LinkedIn Profile" },
-              { Icon: BsGithub, link: "#", label: "GitHub Profile" },
+              { Icon: IoLogoLinkedin, link: "https://www.linkedin.com/in/saurabhkumartiwari/", label: "LinkedIn Profile" },
+              { Icon: BsGithub, link: "https://github.com/Saurabhkumargit/", label: "GitHub Profile" },
             ].map((item, index) => (
               <motion.a
                 key={index}
