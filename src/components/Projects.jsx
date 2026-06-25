@@ -22,7 +22,7 @@ export default function Projects({ showCTA = false }) {
         My <span className="font-extrabold">Projects</span>
       </h2>
 
-      <div className="lg:mt-16 mt-8 lg:space-y-24 space-y-12 lg:pb-6 pb-3">
+      <div className="lg:mt-16 mt-8 lg:space-y-24 space-y-16 lg:pb-6 pb-3">
         {displayProjects.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}
@@ -30,7 +30,7 @@ export default function Projects({ showCTA = false }) {
 
       {showCTA && (
         <motion.div
-          className="flex justify-center mt-16"
+          className="flex justify-center mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
