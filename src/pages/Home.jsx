@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { IoLogoLinkedin, IoLogoTwitter } from "react-icons/io5";
+import { IoLogoLinkedin } from "react-icons/io5";
 import { BiLogoGmail } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
 import { TypeAnimation } from "react-type-animation";
@@ -9,14 +9,12 @@ export default function Home() {
   return (
     <div className="mt-20" id="home">
       <div className="flex justify-between py-10 items-center px-5 lg:px-28 lg:flex-row flex-col-reverse">
-
         <motion.div
           className="lg:w-[45%]"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
-
           <motion.div
             className="text-2xl lg:text-5xl flex flex-col mt-8 lg:mt-0 gap-2 lg:gap-5"
             initial="hidden"
@@ -30,18 +28,27 @@ export default function Home() {
               },
             }}
           >
-            <motion.h2 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}>
-              Hello, <TypeAnimation
-                sequence={[
-                  'I am Saurabh Kumar Tiwari',
-                  1000,
-                ]}
+            <motion.h2
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
+              Hello,{" "}
+              <TypeAnimation
+                sequence={["I am Saurabh Kumar Tiwari", 1000]}
                 speed={10}
-                style={{ fontWeight:600 }}
+                style={{ fontWeight: 600 }}
                 repeat={Infinity}
               />
             </motion.h2>
-            <motion.h2 className="text-3xl lg:text-5xl leading-tight" variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}>
+            <motion.h2
+              className="text-3xl lg:text-5xl leading-tight"
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
               Building scalable web applications, real-time systems, and{" "}
               <span
                 className="text-white font-extrabold"
@@ -58,7 +65,8 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            Full Stack Engineer focused on Backend Systems, DevOps, Distributed Systems, and Modern Web Applications.
+            Full Stack Engineer focused on Backend Systems, DevOps, Distributed
+            Systems, and Modern Web Applications.
           </motion.p>
 
           <motion.div
@@ -67,26 +75,40 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
           >
-            <div className="flex gap-4">
-              <a href="#projects" className="bg-black text-white px-6 py-3 rounded border-2 border-black font-semibold hover:bg-white hover:text-black transition-all">
+            <div className="flex flex-row gap-4">
+              <a
+                href="#projects"
+                className="whitespace-nowrap bg-black text-white px-6 py-3 rounded border-2 border-black font-semibold hover:bg-white hover:text-black transition-all"
+              >
                 View Projects
               </a>
-              <a href="/assets/resume.pdf" download="Saurabh_Kumar_Tiwari_Resume.pdf" className="bg-white text-black px-6 py-3 rounded border-2 border-black font-semibold hover:bg-black hover:text-white transition-all">
+              <a
+                href="/assets/SaurabhTiwari.resume.pdf"
+                download="Saurabh_Kumar_Tiwari_Resume.pdf"
+                className="whitespace-nowrap bg-white text-black px-6 py-3 rounded border-2 border-black font-semibold hover:bg-black hover:text-white transition-all"
+              >
                 Download Resume
               </a>
             </div>
-            
+
             <div className="flex items-center gap-x-5 mt-4 lg:mt-0 lg:ml-4">
               {[
-                { Icon: BiLogoGmail, link: "mailto:saurabhkumar.t21@gmail.com" },
-                { Icon: IoLogoLinkedin, link: "#" },
-                { Icon: BsGithub, link: "#" }
+                {
+                  Icon: BiLogoGmail,
+                  link: "mailto:[EMAIL_ADDRESS]",
+                },
+                { Icon: IoLogoLinkedin, link: "https://www.linkedin.com/in/saurabhkumartiwari/" },
+                { Icon: BsGithub, link: "https://github.com/Saurabhkumargit/" },
               ].map((item, index) => (
                 <motion.a
                   key={index}
                   href={item.link}
                   className="bg-white p-2 lg:p-3 rounded border-2 border-black"
-                  whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
+                  whileHover={{
+                    scale: 1.1,
+                    backgroundColor: "#000",
+                    color: "#fff",
+                  }}
                   whileTap={{ scale: 0.9 }}
                 >
                   <item.Icon className="w-4 h-4 lg:w-5 lg:h-5" />
@@ -102,7 +124,11 @@ export default function Home() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
-          <img className="h-full w-full" src="/assets/hero-vector.svg" alt="Hero Vector" />
+          <img
+            className="h-full w-full"
+            src="/assets/hero-vector.svg"
+            alt="Hero Vector"
+          />
         </motion.div>
       </div>
     </div>

@@ -1,30 +1,18 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { blogs } from '../data/blogs';
+import BlogCard from './shared/BlogCard';
 
-export default function Blog() {
-  const [articles] = useState([
-    {
-      id: 1,
-      title: "Deploying DevBoard on Kubernetes",
-      date: "Feb 15, 2025",
-      readTime: "8 min read",
-      summary: "A comprehensive guide on deploying a cloud-native task management platform using Docker, Kubernetes, and GitHub Actions.",
-    },
-    {
-      id: 2,
-      title: "Building a Real-Time Collaborative Code Editor with Socket.IO",
-      date: "Jan 10, 2025",
-      readTime: "6 min read",
-      summary: "Exploring WebSocket architecture, room-based state synchronization, and handling concurrent users in real-time.",
-    },
-    {
-      id: 3,
-      title: "Redis Caching Strategies in Node.js Applications",
-      date: "Dec 05, 2024",
-      readTime: "5 min read",
-      summary: "Learn how to significantly improve API response times using various Redis caching patterns in Node.js.",
-    },
-  ]);
+/**
+ * Blog section.
+ *
+ * @param {boolean} showCTA - When true (homepage), only renders homepage-flagged
+ *                            articles and shows the "View All Articles" CTA.
+ *                            When false (blog page), renders every article.
+ */
+export default function Blog({ showCTA = false }) {
+  const displayBlogs = showCTA ? blogs.filter((b) => b.homepage) : blogs;
 
   return (
     <div className="px-5 lg:px-28 my-8 lg:my-16" id="blog">
@@ -39,46 +27,28 @@ export default function Blog() {
       </motion.h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 lg:mt-16">
-        {articles.map((article, index) => (
-          <motion.div
-            key={article.id}
-            className="border-2 border-black rounded-md p-6 hover:bg-black hover:text-white transition-all duration-300 flex flex-col justify-between"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 10,
-              delay: index * 0.2,
-            }}
-            viewport={{ once: true }}
-          >
-            <div>
-              <div className="flex justify-between items-center text-xs font-semibold mb-4 opacity-70">
-                <span>{article.date}</span>
-                <span>{article.readTime}</span>
-              </div>
-              <h3 className="text-xl font-bold mb-3">{article.title}</h3>
-              <p className="text-sm opacity-80 mb-6">{article.summary}</p>
-            </div>
-          </motion.div>
+        {displayBlogs.map((article, index) => (
+          <BlogCard key={article.id} article={article} index={index} />
         ))}
       </div>
 
-      <motion.div
-        className="flex justify-center mt-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <button
-          disabled
-          className="px-6 py-3 border-2 border-gray-400 text-gray-500 rounded-md font-semibold cursor-not-allowed"
+      {showCTA && (
+        <motion.div
+          className="flex justify-center mt-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          viewport={{ once: true }}
         >
-          View All Articles
-        </button>
-      </motion.div>
+          <Link to="/blog" className="relative inline-block px-6 py-3 font-semibold group">
+            <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0" />
+            <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black" />
+            <span className="relative text-black group-hover:text-white">
+              View All Articles
+            </span>
+          </Link>
+        </motion.div>
+      )}
     </div>
   );
 }
