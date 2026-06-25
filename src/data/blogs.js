@@ -5,7 +5,7 @@ export const blogs = [
     title: 'Deploying DevBoard on Kubernetes',
     description:
       'A comprehensive walkthrough of containerizing a Node.js application, writing Kubernetes manifests, configuring Horizontal Pod Autoscaling, and automating the full deployment pipeline through GitHub Actions.',
-    date: 'Feb 15, 2025',
+    date: 'June 25, 2026',
     readTime: '8 min read',
     tags: ['Kubernetes', 'Docker', 'DevOps', 'CI/CD', 'GitHub Actions'],
     homepage: true,
@@ -273,5 +273,4 @@ As I continue improving the project, I plan to explore managed Kubernetes cluste
 
 The application may be simple—but the engineering behind it is not.`,
   },
-  
 ];
