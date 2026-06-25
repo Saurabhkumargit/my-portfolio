@@ -1,9 +1,12 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <div className="px-5 lg:px-28 flex justify-between flex-col lg:flex-row" id="about">
+    <div
+      className="my-8 lg:my-16 px-5 lg:px-28 flex justify-between flex-col lg:flex-row"
+      id="about"
+    >
       <motion.div
         className="lg:w-1/2"
         initial={{ opacity: 0, x: -50 }}

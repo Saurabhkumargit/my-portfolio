@@ -15,7 +15,7 @@ export default function Blog({ showCTA = false }) {
   const displayBlogs = showCTA ? blogs.filter((b) => b.homepage) : blogs;
 
   return (
-    <div className="px-5 lg:px-28 my-8 lg:my-16" id="blog">
+    <div className="px-5 lg:px-28 py-8 lg:py-16" id="blog">
       <motion.h2
         className="text-2xl lg:text-4xl text-center"
         initial={{ opacity: 0, y: -20 }}

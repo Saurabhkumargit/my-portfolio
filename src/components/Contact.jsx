@@ -26,7 +26,7 @@ export default function Contact() {
         Contact <span className="font-extrabold">Me</span>
       </motion.h2>
 
-      <div className="flex justify-between items-center mt-8 lg:mt-16 flex-col-reverse lg:flex-row gap-12 lg:gap-0">
+      <div className="flex justify-between items-center pt-8 lg:pt-16 flex-col-reverse lg:flex-row gap-12 lg:gap-0">
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : { opacity: 0 }}

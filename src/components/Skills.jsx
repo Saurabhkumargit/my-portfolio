@@ -41,7 +41,7 @@ export default function Skills() {
   ]);
 
   return (
-    <div className="mt-3 lg:mt-16 pb-16" id="skills">
+    <div className="my-8 lg:my-16 pb-16" id="skills">
       <div className="px-5 lg:px-28">
 
         <motion.h2
