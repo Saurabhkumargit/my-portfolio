@@ -40,11 +40,27 @@ export default function BlogPage() {
       <div className="px-5 lg:px-28 mt-12 lg:mt-20">
         {/* Future: tag/category filter bar */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((article, index) => (
-            <BlogCard key={article.id} article={article} index={index} />
-          ))}
-        </div>
+        {(() => {
+          const count = blogs.length;
+          const gridCols =
+            count === 1
+              ? 'grid-cols-1'
+              : count === 2
+              ? 'grid-cols-1 sm:grid-cols-2'
+              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
+          return (
+            <div className={`grid ${gridCols} gap-8`}>
+              {blogs.map((article, index) => (
+                <BlogCard
+                  key={article.id}
+                  article={article}
+                  index={index}
+                  featured={count === 1}
+                />
+              ))}
+            </div>
+          );
+        })()}
       </div>
 
       {/* Back link */}

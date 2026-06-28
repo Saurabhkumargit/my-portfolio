@@ -14,6 +14,15 @@ import BlogCard from './shared/BlogCard';
 export default function Blog({ showCTA = false }) {
   const displayBlogs = showCTA ? blogs.filter((b) => b.homepage) : blogs;
 
+  // Dynamically pick the number of columns so a single article isn't left
+  // stranded in the first cell of a 3-column grid.
+  const gridCols =
+    displayBlogs.length === 1
+      ? 'grid-cols-1'
+      : displayBlogs.length === 2
+      ? 'grid-cols-1 sm:grid-cols-2'
+      : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
+
   return (
     <div className="px-5 lg:px-28 py-8 lg:py-16" id="blog">
       <motion.h2
@@ -26,9 +35,14 @@ export default function Blog({ showCTA = false }) {
         My <span className="font-extrabold">Blog</span>
       </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 lg:mt-16">
+      <div className={`grid ${gridCols} gap-8 mt-8 lg:mt-16`}>
         {displayBlogs.map((article, index) => (
-          <BlogCard key={article.id} article={article} index={index} />
+          <BlogCard
+            key={article.id}
+            article={article}
+            index={index}
+            featured={displayBlogs.length === 1}
+          />
         ))}
       </div>
 
