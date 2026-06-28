@@ -13,14 +13,14 @@ export default function ProjectsPage() {
     <div className="pt-28 pb-20 bg-black text-white min-h-screen">
       {/* Page heading */}
       <div className="px-5 lg:px-28 mb-4 text-center">
-        <motion.p
+        {/* <motion.p
           className="text-[#71717A] text-sm font-semibold uppercase tracking-widest mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
           Portfolio
-        </motion.p>
+        </motion.p> */}
         <motion.h1
           className="text-3xl lg:text-5xl font-extrabold text-white"
           initial={{ opacity: 0, y: 20 }}
