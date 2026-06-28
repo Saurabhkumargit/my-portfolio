@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TbExternalLink } from 'react-icons/tb';
 import { BsGithub } from 'react-icons/bs';
+import ImageSlideshow from './ImageSlideshow';
 
 /**
  * ProjectCard – the alternating-row project card used on the homepage
@@ -12,6 +13,8 @@ import { BsGithub } from 'react-icons/bs';
  * @param {number} index    - Position in the rendered list (drives alternation & animation)
  */
 export default function ProjectCard({ project, index }) {
+  const hasImage = project.coverImage || (project.screenshots && project.screenshots.length > 0);
+
   return (
     <motion.div
       className={`flex justify-between items-center gap-8 flex-col ${
@@ -22,20 +25,30 @@ export default function ProjectCard({ project, index }) {
       transition={{ type: 'spring', stiffness: 80, damping: 10, delay: 0.1 }}
       viewport={{ once: true }}
     >
-      {/* Thumbnail */}
-      <Link
-        to={`/projects/${project.slug}`}
-        className="lg:w-[50%] w-full rounded-2xl overflow-hidden border border-zinc-800 block"
-      >
-        <img
-          className="w-full h-full hover:scale-105 transition-all duration-500 cursor-pointer object-cover"
-          src={project.coverImage}
-          alt={project.title}
-        />
-      </Link>
+      {/* Thumbnail or Slideshow */}
+      {project.screenshots && project.screenshots.length > 0 ? (
+        <div className="lg:w-[50%] w-full rounded-2xl overflow-hidden border border-zinc-800 block relative aspect-video shrink-0">
+          <ImageSlideshow
+            images={project.screenshots}
+            title={project.title}
+            linkTo={`/projects/${project.slug}`}
+          />
+        </div>
+      ) : project.coverImage ? (
+        <Link
+          to={`/projects/${project.slug}`}
+          className="lg:w-[50%] w-full rounded-2xl overflow-hidden border border-zinc-800 block aspect-video shrink-0"
+        >
+          <img
+            className="w-full h-full hover:scale-105 transition-all duration-500 cursor-pointer object-cover"
+            src={project.coverImage}
+            alt={project.title}
+          />
+        </Link>
+      ) : null}
 
       {/* Info */}
-      <div className="lg:w-[50%] lg:space-y-6 space-y-4">
+      <div className={`w-full ${hasImage ? 'lg:w-[50%]' : ''} lg:space-y-6 space-y-4`}>
         <h2 className="font-extrabold text-white mt-5 lg:mt-0 text-3xl lg:text-5xl opacity-20">
           {String(index + 1).padStart(2, '0')}
         </h2>

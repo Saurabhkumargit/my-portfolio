@@ -70,13 +70,15 @@ export default function ProjectsPage() {
                 viewport={{ once: true }}
               >
                 {/* Thumbnail */}
-                <Link to={`/projects/${project.slug}`} className="block overflow-hidden">
-                  <img
-                    src={project.coverImage}
-                    alt={project.title}
-                    className="w-full object-cover h-52 group-hover:scale-105 transition-all duration-500"
-                  />
-                </Link>
+                {project.coverImage && (
+                  <Link to={`/projects/${project.slug}`} className="block overflow-hidden">
+                    <img
+                      src={project.coverImage}
+                      alt={project.title}
+                      className="w-full object-cover h-52 group-hover:scale-105 transition-all duration-500"
+                    />
+                  </Link>
+                )}
 
                 <div className="p-6 space-y-3">
                   <Link to={`/projects/${project.slug}`}>

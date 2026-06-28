@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { BsGithub } from 'react-icons/bs';
 import { TbExternalLink, TbArrowLeft } from 'react-icons/tb';
 import { projects } from '../data/projects';
+import ImageSlideshow from '../components/shared/ImageSlideshow';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
@@ -103,19 +104,33 @@ export default function ProjectDetailPage() {
         </motion.div>
       </div>
 
-      {/* Cover image */}
-      <motion.div
-        className="rounded-2xl overflow-hidden border-2 border-zinc-200 mb-16 w-full max-w-4xl"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-      >
-        <img
-          src={project.coverImage}
-          alt={project.title}
-          className="w-full object-cover"
-        />
-      </motion.div>
+      {/* Cover image or Slideshow */}
+      {project.screenshots && project.screenshots.length > 0 ? (
+        <motion.div
+          className="rounded-2xl overflow-hidden border border-zinc-800 mb-16 w-full max-w-4xl aspect-video relative shrink-0"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          <ImageSlideshow
+            images={project.screenshots}
+            title={project.title}
+          />
+        </motion.div>
+      ) : project.coverImage ? (
+        <motion.div
+          className="rounded-2xl overflow-hidden border border-zinc-800 mb-16 w-full max-w-4xl aspect-video relative shrink-0"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
+          <img
+            src={project.coverImage}
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+      ) : null}
 
       <div className="max-w-4xl space-y-14">
         {/* Full description */}

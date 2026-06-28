@@ -1,3 +1,16 @@
+import devboard1 from '../assets/devboard/devboarddemo1.png';
+import devboard2 from '../assets/devboard/devboarddemo2.png';
+import devboard3 from '../assets/devboard/devboarddemo3.png';
+import devboard4 from '../assets/devboard/devboarddemo4.png';
+import devboard5 from '../assets/devboard/devboarddemo5.png';
+import devboard6 from '../assets/devboard/devboarddemo6.png';
+import devboard7 from '../assets/devboard/devboarddemo7.png';
+import devboard8 from '../assets/devboard/devboarddemo8.png';
+
+import realtime1 from '../assets/realtimecodeeditor/realtimedemo1.png';
+import realtime2 from '../assets/realtimecodeeditor/realtimedemo2.png';
+import realtime3 from '../assets/realtimecodeeditor/realtimedemo3.png';
+
 export const projects = [
   {
     id: 1,
@@ -27,8 +40,17 @@ export const projects = [
     completed: true,
     category: 'devops',
     year: 2024,
-    coverImage: '/assets/project1.png',
-    screenshots: [],
+    coverImage: devboard1,
+    screenshots: [
+      devboard1,
+      devboard2,
+      devboard3,
+      devboard4,
+      devboard5,
+      devboard6,
+      devboard7,
+      devboard8,
+    ],
     metrics: [
       'HPA scaling from 2 to 5 pods under load',
       '500+ concurrent request load testing',
@@ -50,8 +72,12 @@ export const projects = [
     completed: true,
     category: 'real-time',
     year: 2024,
-    coverImage: '/assets/project1.png',
-    screenshots: [],
+    coverImage: realtime1,
+    screenshots: [
+      realtime1,
+      realtime2,
+      realtime3,
+    ],
     metrics: [],
   },
   {
@@ -68,7 +94,7 @@ export const projects = [
     completed: true,
     category: 'devops',
     year: 2024,
-    coverImage: '/assets/project1.png',
+    coverImage: null,
     screenshots: [],
     metrics: [],
   },
@@ -86,7 +112,7 @@ export const projects = [
     completed: true,
     category: 'fullstack',
     year: 2023,
-    coverImage: '/assets/project1.png',
+    coverImage: null,
     screenshots: [],
     metrics: [],
   },
@@ -104,7 +130,7 @@ export const projects = [
     completed: true,
     category: 'Algorithms & Data Structures',
     year: 2024,
-    coverImage: '/assets/project1.png',
+    coverImage: null,
     screenshots: [],
     metrics: [
       'Visual representation of 6 sorting algorithms',
