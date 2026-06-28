@@ -39,7 +39,7 @@ export const projects = [
     homepage: true,
     completed: true,
     category: 'devops',
-    year: 2024,
+    year: 2026,
     coverImage: devboard1,
     screenshots: [
       devboard1,
@@ -71,7 +71,7 @@ export const projects = [
     homepage: true,
     completed: true,
     category: 'real-time',
-    year: 2024,
+    year: 2026,
     coverImage: realtime1,
     screenshots: [
       realtime1,
@@ -93,7 +93,7 @@ export const projects = [
     homepage: false,
     completed: true,
     category: 'devops',
-    year: 2024,
+    year: 2025,
     coverImage: null,
     screenshots: [],
     metrics: [],
@@ -129,7 +129,7 @@ export const projects = [
     homepage: false,
     completed: true,
     category: 'Algorithms & Data Structures',
-    year: 2024,
+    year: 2025,
     coverImage: null,
     screenshots: [],
     metrics: [
