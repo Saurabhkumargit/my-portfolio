@@ -18,7 +18,7 @@ export default function ProjectDetailPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-extrabold mb-4">Project not found</h1>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4">Project not found</h1>
           <p className="text-[#71717A] mb-8">
             The project you're looking for doesn't exist or has been removed.
           </p>
@@ -26,7 +26,7 @@ export default function ProjectDetailPage() {
             to="/projects"
             className="font-semibold hover:opacity-60 transition-opacity flex items-center gap-2 justify-center"
           >
-            <TbArrowLeft size={18} /> Back to Projects
+            <TbArrowLeft className="w-4 h-4 md:w-5 md:h-5" /> Back to Projects
           </Link>
         </motion.div>
       </div>
@@ -45,14 +45,14 @@ export default function ProjectDetailPage() {
           to="/projects"
           className="inline-flex items-center gap-2 text-sm font-semibold text-[#71717A] hover:text-black transition-colors mb-10"
         >
-          <TbArrowLeft size={16} /> All Projects
+          <TbArrowLeft className="w-4 h-4 md:w-5 md:h-5" /> All Projects
         </Link>
       </motion.div>
 
       {/* Header */}
       <div className="max-w-4xl">
         <motion.p
-          className="text-[#71717A] text-xs font-semibold uppercase tracking-widest mb-3"
+          className="text-[#71717A] text-[10px] md:text-xs font-semibold uppercase tracking-widest mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -61,7 +61,7 @@ export default function ProjectDetailPage() {
         </motion.p>
 
         <motion.h1
-          className="text-3xl lg:text-5xl font-extrabold leading-tight mb-4"
+          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
@@ -70,7 +70,7 @@ export default function ProjectDetailPage() {
         </motion.h1>
 
         <motion.p
-          className="text-lg text-[#71717A] leading-relaxed mb-8"
+          className="text-base md:text-lg lg:text-xl text-[#71717A] leading-relaxed mb-8"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -91,7 +91,7 @@ export default function ProjectDetailPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white font-semibold rounded border-2 border-black hover:bg-white hover:text-black transition-all"
           >
-            <BsGithub size={18} /> GitHub
+            <BsGithub className="w-4 h-4 md:w-5 md:h-5" /> GitHub
           </a>
           <a
             href={project.liveDemo}
@@ -99,7 +99,7 @@ export default function ProjectDetailPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded border-2 border-black hover:bg-black hover:text-white transition-all"
           >
-            <TbExternalLink size={18} /> Live Demo
+            <TbExternalLink className="w-4 h-4 md:w-5 md:h-5" /> Live Demo
           </a>
         </motion.div>
       </div>
@@ -140,8 +140,8 @@ export default function ProjectDetailPage() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl font-extrabold mb-5">Overview</h2>
-          <div className="text-[#71717A] leading-relaxed space-y-4">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-5">Overview</h2>
+          <div className="text-sm md:text-base text-[#71717A] leading-relaxed space-y-4">
             {project.fullDescription.split('\n\n').map((para, i) => (
               <p key={i}>{para}</p>
             ))}
@@ -156,12 +156,12 @@ export default function ProjectDetailPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl font-extrabold mb-5">Performance Highlights</h2>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-5">Performance Highlights</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {project.metrics.map((metric, i) => (
                 <div
                   key={i}
-                  className="border-2 border-black rounded-xl p-5 text-sm font-semibold"
+                  className="border-2 border-black rounded-xl p-5 text-xs md:text-sm font-semibold"
                 >
                   {metric}
                 </div>
@@ -177,12 +177,12 @@ export default function ProjectDetailPage() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl font-extrabold mb-5">Technologies</h2>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-5">Technologies</h2>
           <div className="flex flex-wrap gap-3">
             {project.technologies.map((tech, i) => (
               <span
                 key={i}
-                className="px-4 py-2 border-2 border-black rounded-full text-sm font-semibold hover:bg-black hover:text-white transition-all cursor-default"
+                className="px-4 py-2 border-2 border-black rounded-full text-xs md:text-sm font-semibold hover:bg-black hover:text-white transition-all cursor-default"
               >
                 {tech}
               </span>
@@ -198,8 +198,8 @@ export default function ProjectDetailPage() {
           viewport={{ once: true }}
           className="border-l-4 border-black pl-6 py-2"
         >
-          <h2 className="text-2xl font-extrabold mb-3">Engineering Case Study</h2>
-          <p className="text-[#71717A] leading-relaxed">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-3">Engineering Case Study</h2>
+          <p className="text-sm md:text-base text-[#71717A] leading-relaxed">
             A detailed write-up covering architecture decisions, challenges faced, and lessons
             learned is being prepared. Check back soon — or read the related{' '}
             <Link to="/blog" className="font-semibold underline hover:opacity-60 transition-opacity">

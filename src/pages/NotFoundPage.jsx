@@ -12,7 +12,7 @@ export default function NotFoundPage() {
         transition={{ type: 'spring', stiffness: 80, damping: 12 }}
       >
         <p
-          className="text-[10rem] lg:text-[14rem] font-extrabold leading-none select-none"
+          className="text-[8rem] md:text-[10rem] lg:text-[12rem] xl:text-[14rem] font-extrabold leading-none select-none"
           style={{ WebkitTextStroke: '2px black', color: 'transparent' }}
         >
           404
@@ -25,8 +25,8 @@ export default function NotFoundPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <h1 className="text-2xl lg:text-4xl font-extrabold">Page not found</h1>
-        <p className="text-[#71717A] max-w-sm mx-auto leading-relaxed">
+        <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold">Page not found</h1>
+        <p className="text-[#71717A] text-sm md:text-base max-w-sm mx-auto leading-relaxed">
           The page you're looking for doesn't exist, has been moved, or the URL is incorrect.
         </p>
 

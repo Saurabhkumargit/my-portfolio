@@ -10,7 +10,7 @@ export default function BlogPage() {
       {/* Page heading */}
       <div className="px-5 lg:px-28 mb-4 text-center">
         <motion.p
-          className="text-[#71717A] text-sm font-semibold uppercase tracking-widest mb-3"
+          className="text-[#71717A] text-xs md:text-sm font-semibold uppercase tracking-widest mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -18,7 +18,7 @@ export default function BlogPage() {
           Technical Writing
         </motion.p>
         <motion.h1
-          className="text-3xl lg:text-5xl font-extrabold"
+          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
@@ -26,7 +26,7 @@ export default function BlogPage() {
           All Articles
         </motion.h1>
         <motion.p
-          className="text-[#71717A] mt-4 max-w-xl mx-auto"
+          className="text-[#71717A] text-sm md:text-base mt-4 max-w-xl mx-auto"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}

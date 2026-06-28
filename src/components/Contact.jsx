@@ -21,7 +21,7 @@ export default function Contact() {
         initial={{ y: -50, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-2xl lg:text-4xl text-center"
+        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center"
       >
         Contact <span className="font-extrabold">Me</span>
       </motion.h2>
@@ -34,8 +34,8 @@ export default function Contact() {
           className="lg:w-[40%] flex flex-col gap-6"
         >
           <div className="flex flex-col gap-4">
-            <h3 className="font-bold text-2xl">Connect with me</h3>
-            <p className="text-[#71717A]">
+            <h3 className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl">Connect with me</h3>
+            <p className="text-[#71717A] text-sm md:text-base">
               Feel free to reach out for collaborations, opportunities, or just
               a quick chat!
             </p>
@@ -63,7 +63,7 @@ export default function Contact() {
                 whileTap={{ scale: 0.98 }}
               >
                 <item.Icon className="w-6 h-6" />
-                <span className="font-semibold">{item.label}</span>
+                <span className="font-semibold text-sm md:text-base">{item.label}</span>
               </motion.a>
             ))}
           </div>
@@ -75,7 +75,7 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="lg:w-1/2"
         >
-          <div className="font-extrabold text-2xl lg:text-5xl mt-5 lg:mt-0 space-y-1 lg:space-y-3">
+          <div className="font-extrabold text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-5 lg:mt-0 space-y-1 lg:space-y-3">
             <h2>
               Let's{" "}
               <span
@@ -89,7 +89,7 @@ export default function Contact() {
             <h2>Something special</h2>
           </div>
 
-          <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-6">
+          <p className="text-[#71717A] text-xs md:text-sm lg:text-base mt-3 lg:mt-6">
             I seek to push the limits of technology to create highly-scalable,
             fault-tolerant, and performant backend systems.
           </p>

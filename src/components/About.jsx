@@ -14,7 +14,7 @@ export default function About() {
         transition={{ type: "spring", stiffness: 80, damping: 10 }}
         viewport={{ once: true }}
       >
-        <img src="/assets/about-me.svg" alt="About Me Illustration" />
+        <img className="w-full h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto object-contain" src="/assets/about-me.svg" alt="About Me Illustration" />
       </motion.div>
 
       <motion.div
@@ -24,15 +24,15 @@ export default function About() {
         transition={{ type: "spring", stiffness: 80, damping: 10, delay: 0.2 }}
         viewport={{ once: true }}
       >
-        <h2 className="lg:text-4xl text-2xl mt-4 lg:mt-0">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-4 lg:mt-0">
           About <span className="font-extrabold">Me</span>
         </h2>
 
-        <p className="text-[#71717A] text-sm/6 lg:text-base mt-5 lg:mt-10">
+        <p className="text-[#71717A] text-sm md:text-base lg:text-lg mt-5 lg:mt-10">
           I'm a Full Stack Engineer focused on building scalable applications, backend systems, and cloud-native infrastructure.
         </p>
 
-        <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
+        <p className="text-[#71717A] text-sm md:text-base lg:text-lg mt-3 lg:mt-5">
           I enjoy working on real-time applications, observability platforms, deployment automation, and modern web architectures. My goal is to build fault-tolerant systems and efficient CI/CD pipelines that streamline the engineering lifecycle.
         </p>
 

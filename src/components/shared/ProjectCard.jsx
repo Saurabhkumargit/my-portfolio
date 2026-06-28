@@ -49,22 +49,22 @@ export default function ProjectCard({ project, index }) {
 
       {/* Info */}
       <div className={`w-full ${hasImage ? 'lg:w-[50%]' : ''} lg:space-y-6 space-y-4`}>
-        <h2 className="font-extrabold text-white mt-5 lg:mt-0 text-3xl lg:text-5xl opacity-20">
+        <h2 className="font-extrabold text-white mt-5 lg:mt-0 text-3xl md:text-4xl lg:text-5xl xl:text-6xl opacity-20">
           {String(index + 1).padStart(2, '0')}
         </h2>
 
         <Link to={`/projects/${project.slug}`}>
-          <p className="font-bold text-white text-2xl lg:text-3xl hover:opacity-80 transition-opacity">
+          <p className="font-bold text-white text-xl md:text-2xl lg:text-3xl xl:text-4xl hover:opacity-80 transition-opacity">
             {project.title}
           </p>
         </Link>
 
-        <p className="font-light text-sm/6 lg:text-base text-[#D4D4D8]">
+        <p className="font-light text-xs md:text-sm lg:text-base text-[#D4D4D8]">
           {project.shortDescription}
         </p>
 
         {project.metrics && project.metrics.length > 0 && (
-          <ul className="list-disc ml-5 text-[#D4D4D8] text-sm lg:text-base font-light space-y-1">
+          <ul className="list-disc ml-5 text-[#D4D4D8] text-xs md:text-sm lg:text-base font-light space-y-1">
             {project.metrics.map((metric, i) => (
               <li key={i}>{metric}</li>
             ))}
@@ -76,7 +76,7 @@ export default function ProjectCard({ project, index }) {
           {project.technologies.map((tag, i) => (
             <span
               key={i}
-              className="px-3 py-1 bg-zinc-900 text-zinc-300 text-xs rounded-full border border-zinc-700"
+              className="px-3 py-1 bg-zinc-900 text-zinc-300 text-[10px] md:text-xs rounded-full border border-zinc-700"
             >
               {tag}
             </span>
@@ -92,7 +92,7 @@ export default function ProjectCard({ project, index }) {
             rel="noopener noreferrer"
           >
             <BsGithub size={20} />
-            <span className="text-sm font-semibold">GitHub</span>
+            <span className="text-xs md:text-sm font-semibold">GitHub</span>
           </a>
           <a
             href={project.liveDemo}
@@ -101,11 +101,11 @@ export default function ProjectCard({ project, index }) {
             rel="noopener noreferrer"
           >
             <TbExternalLink size={22} />
-            <span className="text-sm font-semibold">Live Demo</span>
+            <span className="text-xs md:text-sm font-semibold">Live Demo</span>
           </a>
           <Link
             to={`/projects/${project.slug}`}
-            className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1 text-sm font-semibold"
+            className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1 text-xs md:text-sm font-semibold"
           >
             Case Study →
           </Link>

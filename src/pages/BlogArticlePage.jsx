@@ -27,15 +27,15 @@ export default function BlogArticlePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-extrabold mb-4">Article not found</h1>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4">Article not found</h1>
           <p className="text-[#71717A] mb-8">
-            The article you're looking for doesn't exist or has been moved.
+            The article you're looking for doesn't exist or has been removed.
           </p>
           <Link
             to="/blog"
             className="font-semibold hover:opacity-60 transition-opacity flex items-center gap-2 justify-center"
           >
-            <TbArrowLeft size={18} /> Back to Blog
+            <TbArrowLeft className="w-4 h-4 md:w-5 md:h-5" /> Back to Blog
           </Link>
         </motion.div>
       </div>
@@ -54,7 +54,7 @@ export default function BlogArticlePage() {
           to="/blog"
           className="inline-flex items-center gap-2 text-sm font-semibold text-[#71717A] hover:text-black transition-colors mb-10"
         >
-          <TbArrowLeft size={16} /> All Articles
+          <TbArrowLeft className="w-4 h-4 md:w-5 md:h-5" /> All Articles
         </Link>
       </motion.div>
 
@@ -69,7 +69,7 @@ export default function BlogArticlePage() {
           {article.tags.map((tag, i) => (
             <span
               key={i}
-              className="px-3 py-1 text-xs font-semibold border-2 border-black rounded-full"
+              className="px-3 py-1 text-[10px] md:text-xs font-semibold border-2 border-black rounded-full"
             >
               {tag}
             </span>
@@ -78,7 +78,7 @@ export default function BlogArticlePage() {
 
         {/* Title */}
         <motion.h1
-          className="text-3xl lg:text-5xl font-extrabold leading-tight mb-6"
+          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
@@ -88,16 +88,16 @@ export default function BlogArticlePage() {
 
         {/* Meta */}
         <motion.div
-          className="flex items-center gap-6 text-sm text-[#71717A] font-semibold mb-10 border-b-2 border-zinc-100 pb-6"
+          className="flex items-center gap-6 text-xs md:text-sm text-[#71717A] font-semibold mb-10 border-b-2 border-zinc-100 pb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <span className="flex items-center gap-1.5">
-            <TbCalendar size={15} /> {article.date}
+            <TbCalendar className="w-3.5 h-3.5 md:w-4 md:h-4" /> {article.date}
           </span>
           <span className="flex items-center gap-1.5">
-            <TbClock size={15} /> {article.readTime}
+            <TbClock className="w-3.5 h-3.5 md:w-4 md:h-4" /> {article.readTime}
           </span>
         </motion.div>
 
@@ -107,7 +107,7 @@ export default function BlogArticlePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
         >
-          <p className="text-lg leading-relaxed text-[#3f3f46] font-medium border-l-4 border-black pl-5 mb-10">
+          <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[#3f3f46] font-medium border-l-4 border-black pl-5 mb-10">
             {article.description}
           </p>
         </motion.div>
@@ -128,7 +128,7 @@ export default function BlogArticlePage() {
             renderMarkdown(article.content)
           ) : (
             <>
-              <p className="leading-relaxed">
+              <p className="leading-relaxed text-sm md:text-base">
                 This article covers the key concepts, design decisions, and practical implementation
                 details behind <strong className="text-black">{article.title}</strong>. The sections
                 below outline the approach taken and the reasoning behind each technical choice.
@@ -142,8 +142,8 @@ export default function BlogArticlePage() {
                 { heading: 'Results & Takeaways', body: 'Measured outcomes, performance benchmarks where applicable, and the lessons that can be applied to future projects.' },
               ].map(({ heading, body }, i) => (
                 <div key={i} className="pt-4">
-                  <h2 className="text-xl font-extrabold text-black mb-2">{heading}</h2>
-                  <p className="leading-relaxed">{body}</p>
+                  <h2 className="text-lg md:text-xl lg:text-2xl font-extrabold text-black mb-2">{heading}</h2>
+                  <p className="leading-relaxed text-sm md:text-base">{body}</p>
                 </div>
               ))}
 
@@ -200,14 +200,14 @@ function renderMarkdown(md) {
       }
       if (trimmed.startsWith('## ')) {
         return (
-          <h2 key={`${index}-${bIdx}`} className="text-2xl font-extrabold text-black mt-8 mb-4">
+          <h2 key={`${index}-${bIdx}`} className="text-xl md:text-2xl lg:text-3xl font-extrabold text-black mt-8 mb-4">
             {renderInline(trimmed.slice(3))}
           </h2>
         );
       }
       if (trimmed.startsWith('### ')) {
         return (
-          <h3 key={`${index}-${bIdx}`} className="text-xl font-bold text-black mt-6 mb-3">
+          <h3 key={`${index}-${bIdx}`} className="text-lg md:text-xl lg:text-2xl font-bold text-black mt-6 mb-3">
             {renderInline(trimmed.slice(4))}
           </h3>
         );
@@ -216,7 +216,7 @@ function renderMarkdown(md) {
       // Blockquotes
       if (trimmed.startsWith('> ')) {
         return (
-          <blockquote key={`${index}-${bIdx}`} className="border-l-4 border-black pl-4 italic my-6 text-[#3f3f46]">
+          <blockquote key={`${index}-${bIdx}`} className="border-l-4 border-black pl-4 italic my-6 text-[#3f3f46] text-sm md:text-base lg:text-lg">
             {renderInline(trimmed.slice(2))}
           </blockquote>
         );
@@ -226,7 +226,7 @@ function renderMarkdown(md) {
       if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
         const lines = trimmed.split('\n');
         return (
-          <ul key={`${index}-${bIdx}`} className="list-disc pl-6 space-y-2 my-4 text-[#71717A]">
+          <ul key={`${index}-${bIdx}`} className="list-disc pl-6 space-y-2 my-4 text-[#71717A] text-sm md:text-base">
             {lines.map((line, lIdx) => {
               const content = line.replace(/^[*-]\s+/, '');
               return <li key={lIdx}>{renderInline(content)}</li>;
@@ -237,7 +237,7 @@ function renderMarkdown(md) {
 
       // Regular Paragraph
       return (
-        <p key={`${index}-${bIdx}`} className="leading-relaxed text-[#71717A] my-4">
+        <p key={`${index}-${bIdx}`} className="leading-relaxed text-[#71717A] my-4 text-sm md:text-base">
           {renderInline(trimmed)}
         </p>
       );

@@ -151,7 +151,7 @@ export default function ImageSlideshow({ images, title, linkTo }) {
               className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/60 text-white border border-zinc-800 hover:bg-white hover:text-black opacity-0 group-hover/slideshow:opacity-100 transition-all duration-300 shadow-lg cursor-pointer hover:scale-110 active:scale-95"
               aria-label="Previous screenshot"
             >
-              <TbChevronLeft size={22} />
+              <TbChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
             </button>
             <button
               type="button"
@@ -159,7 +159,7 @@ export default function ImageSlideshow({ images, title, linkTo }) {
               className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/60 text-white border border-zinc-800 hover:bg-white hover:text-black opacity-0 group-hover/slideshow:opacity-100 transition-all duration-300 shadow-lg cursor-pointer hover:scale-110 active:scale-95"
               aria-label="Next screenshot"
             >
-              <TbChevronRight size={22} />
+              <TbChevronRight className="w-5 h-5 md:w-6 md:h-6" />
             </button>
           </>
         )}
@@ -201,7 +201,7 @@ export default function ImageSlideshow({ images, title, linkTo }) {
               className="absolute top-6 right-6 z-50 p-2 rounded-full bg-zinc-900/80 text-white/80 border border-zinc-800 hover:bg-white hover:text-black transition-all cursor-pointer hover:scale-105 active:scale-95"
               aria-label="Close full view"
             >
-              <TbX size={24} />
+              <TbX className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
             </button>
 
             {/* Lightbox Slide Container */}
@@ -235,7 +235,7 @@ export default function ImageSlideshow({ images, title, linkTo }) {
                     className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-zinc-900/80 text-white border border-zinc-800 hover:bg-white hover:text-black transition-all shadow-lg cursor-pointer hover:scale-110 active:scale-95"
                     aria-label="Previous screenshot"
                   >
-                    <TbChevronLeft size={24} />
+                    <TbChevronLeft className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
                   </button>
                   <button
                     type="button"
@@ -246,7 +246,7 @@ export default function ImageSlideshow({ images, title, linkTo }) {
                     className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-zinc-900/80 text-white border border-zinc-800 hover:bg-white hover:text-black transition-all shadow-lg cursor-pointer hover:scale-110 active:scale-95"
                     aria-label="Next screenshot"
                   >
-                    <TbChevronRight size={24} />
+                    <TbChevronRight className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
                   </button>
                 </>
               )}

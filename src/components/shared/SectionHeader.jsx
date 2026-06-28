@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 export default function SectionHeader({ label, highlighted, light = false }) {
   return (
     <motion.h2
-      className={`text-2xl lg:text-4xl text-center ${light ? 'text-white' : ''}`}
+      className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center ${light ? 'text-white' : ''}`}
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}

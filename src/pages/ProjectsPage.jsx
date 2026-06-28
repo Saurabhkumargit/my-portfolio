@@ -22,7 +22,7 @@ export default function ProjectsPage() {
           Portfolio
         </motion.p> */}
         <motion.h1
-          className="text-3xl lg:text-5xl font-extrabold text-white"
+          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
@@ -30,7 +30,7 @@ export default function ProjectsPage() {
           All Projects
         </motion.h1>
         <motion.p
-          className="text-[#71717A] mt-4 max-w-xl mx-auto"
+          className="text-[#71717A] text-sm md:text-base mt-4 max-w-xl mx-auto"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
@@ -83,11 +83,11 @@ export default function ProjectsPage() {
                 <div className="p-6 space-y-3 flex-grow flex flex-col justify-between">
                   <div className="space-y-3">
                     <Link to={`/projects/${project.slug}`}>
-                      <h3 className="font-bold text-xl text-white hover:text-zinc-300 transition-colors">
+                      <h3 className="font-bold text-lg md:text-xl lg:text-2xl text-white hover:text-zinc-300 transition-colors">
                         {project.title}
                       </h3>
                     </Link>
-                    <p className="text-[#71717A] text-sm leading-relaxed">
+                    <p className="text-[#71717A] text-xs md:text-sm leading-relaxed">
                       {project.shortDescription}
                     </p>
                     <div className="flex flex-wrap gap-2 pt-1">

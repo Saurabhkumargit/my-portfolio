@@ -28,13 +28,13 @@ export default function BlogCard({ article, index }) {
       >
         {/* Meta row */}
         <div>
-          <div className="flex justify-between items-center text-xs font-semibold mb-4 opacity-70">
+          <div className="flex justify-between items-center text-[10px] md:text-xs font-semibold mb-4 opacity-70">
             <span>{article.date}</span>
             <span>{article.readTime}</span>
           </div>
 
-          <h3 className="text-xl font-bold mb-3">{article.title}</h3>
-          <p className="text-sm opacity-80 mb-5 leading-relaxed">{article.description}</p>
+          <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-3">{article.title}</h3>
+          <p className="text-xs md:text-sm lg:text-base opacity-80 mb-5 leading-relaxed">{article.description}</p>
         </div>
 
         {/* Tags */}
@@ -43,7 +43,7 @@ export default function BlogCard({ article, index }) {
             {article.tags.map((tag, i) => (
               <span
                 key={i}
-                className="px-2 py-0.5 text-xs border border-current rounded-full opacity-60"
+                className="px-2 py-0.5 text-[10px] md:text-xs border border-current rounded-full opacity-60"
               >
                 {tag}
               </span>
