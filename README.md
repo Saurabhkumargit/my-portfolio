@@ -6,17 +6,15 @@ A responsive, high-performance developer portfolio built with **Vite**, **React 
 
 ## 🚀 Key Features
 
-*   **Screenshot Slideshows**: Major projects showcase actual application screenshots in an interactive carousel featuring:
-    *   Framer Motion horizontal slide transitions.
-    *   Autoplay (every 4 seconds) with pause-on-hover logic.
-    *   Manual navigation controls (chevron buttons and clickable dot indicators).
-*   **Full-Screen Lightbox**: Clicking on screenshots on the details page opens a full-screen, responsive, and uncropped overlay (`object-contain`). Supports arrow keys navigation (`ArrowLeft` / `ArrowRight`) and close shortcut (`Escape`).
-*   **Unified Dark Theme**: Beautiful and consistent dark mode styling across the entire portfolio, including a dedicated, fully-dark **All Projects** list.
-*   **Responsive & Modular Layouts**:
-    *   Alternating image/text project cards.
-    *   Graceful fallback for minor projects (rendered as neat grid cards without images/placeholders).
-*   **Custom Interactive Cursor**: Smooth cursor tracking and custom hover animations for links and buttons.
-*   **Observability & observed latency metrics** documented for production systems.
+*   **Premium Dark UI & Aesthetics**: High-contrast dark styling featuring smooth gradients, glassmorphic panels, modern typography, and curated layouts that look highly professional and modern.
+*   **Technical Blogs Section**: A dedicated blog directory and custom reading pages to share engineering write-ups, architecture details, and coding guides.
+*   **All Projects Portfolio**: A dedicated page displaying a complete list of projects. Uses alternating layout carousels for featured systems and clean, compact text-based grid cards for projects without images.
+*   **Screenshot Carousels & Lightbox**:
+    *   Interactive carousels showing live screenshots of projects with smooth slide transitions and pause-on-hover autoplay.
+    *   Full-screen lightbox viewer showing uncropped high-resolution images, navigable via arrow keys and dismissible with the Escape key.
+*   **Interactive Career Timeline**: A visual timeline summarizing professional experience, key engineering milestones, and responsibilities.
+*   **Interactive Skills Category Grid**: Dynamic grid layout categorizing technical competencies (Frontend, Backend, DevOps, Databases, Algorithms).
+*   **Custom Particle Canvas Cursor**: An interactive particle cursor reacting dynamically to mouse movement and clicks.
 
 ---
 
