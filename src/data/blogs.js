@@ -1454,7 +1454,7 @@ For me, that is the most natural bridge from where I am today to where I want to
 
 The goal is not to leave DevOps behind.
 
-**The goal is to use everything I already know as leverage while moving deeper into AI.**
+**The goal is to use everything I already know as  while moving deeper into AI.**
 `,
   },
 ];
