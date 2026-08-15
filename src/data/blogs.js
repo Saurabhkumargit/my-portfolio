@@ -274,18 +274,26 @@ As I continue improving the project, I plan to explore managed Kubernetes cluste
 The application may be simple—but the engineering behind it is not.`,
   },
 
-  {
-    id: 2,
-    slug: "from-devops-to-ai-roadmap",
-    title: "From DevOps to AI: The Roadmap I’m Following",
-    description:
-      "A practical roadmap for transitioning from backend, DevOps, and cloud engineering into AI—covering machine learning, deep learning, LLMs, RAG, agents, MLOps, LLMOps, and production AI systems.",
-    date: "August 15, 2026",
-    readTime: "15 min read",
-    tags: ["AI", "AI Engineering", "DevOps", "MLOps", "LLMs", "RAG", "GenAI"],
-    homepage: true,
-    coverImage: null,
-    content: `## Introduction
+{
+  id: 2,
+  slug: 'from-devops-to-ai-roadmap',
+  title: 'From DevOps to AI: The Roadmap I’m Following',
+  description:
+    'A practical roadmap for transitioning from backend, DevOps, and cloud engineering into AI, covering machine learning, deep learning, LLMs, RAG, agents, MLOps, LLMOps, and production AI systems.',
+  date: 'August 15, 2026',
+  readTime: '15 min read',
+  tags: [
+    'AI',
+    'AI Engineering',
+    'DevOps',
+    'MLOps',
+    'LLMs',
+    'RAG',
+    'GenAI',
+  ],
+  homepage: true,
+  coverImage: null,
+  content: `## Introduction
 
 The traditional way of learning AI often starts with mathematics, machine learning algorithms, neural networks, and eventually deep learning.
 
@@ -301,9 +309,9 @@ That led me to a more specific question:
 
 The answer is not to become an expert in every branch of artificial intelligence.
 
-My goal is to become a **software and infrastructure engineer who can build, deploy, scale, evaluate, secure, and operate production AI systems.**
+My goal is to become a **software and infrastructure engineer who can build, deploy, scale, evaluate, secure, and operate AI systems in production.**
 
-This article documents the roadmap I am following to make that transition.
+I am not there yet. This roadmap is the path I am following to get there.
 
 ---
 
@@ -345,7 +353,7 @@ This makes AI engineering particularly interesting to me.
 
 I do not want to become someone who only knows how to call an LLM API.
 
-I want to understand what happens before the API call, what happens after it, and how the entire system behaves in production.
+I want to understand what happens before the API call, what happens after it, and how the entire system behaves when it is actually running in production.
 
 ---
 
@@ -365,7 +373,7 @@ My roadmap focuses on the parts of AI that connect most strongly with my existin
 
 The objective is:
 
-> **Learn enough ML and deep learning to understand modern AI systems, then go deep into LLMs, AI application engineering, production infrastructure, and MLOps.**
+> **Learn enough ML and deep learning to understand modern AI systems, then go deeper into LLMs, AI application engineering, production infrastructure, and MLOps.**
 
 ML and deep learning are therefore foundations—not the final specialization.
 
@@ -1133,7 +1141,7 @@ This project is particularly important to me because it does not force me to cho
 
 It combines them.
 
-It represents the direction I eventually want my career to take.
+More importantly, it represents the direction I want my career to move toward.
 
 ---
 
@@ -1238,7 +1246,9 @@ AI Infrastructure Engineer
 LLMOps Engineer
 \`\`\`
 
-The important idea is that every stage should increase the number of roles I can realistically target.
+These are not hard boundaries.
+
+They are milestones that help me understand when my skill set is becoming strong enough to target different roles.
 
 ---
 
@@ -1393,7 +1403,7 @@ Cloud
    +
 AI
    ↓
-Production AI Engineering
+The Road to Production AI Engineering
 \`\`\`
 
 That distinction matters.
@@ -1414,7 +1424,7 @@ Monitoring is still useful.
 
 Backend engineering is still useful.
 
-The difference is that now they can be applied to AI systems.
+The difference is that now they can also be applied to AI systems.
 
 ---
 
@@ -1424,19 +1434,19 @@ I am not trying to become:
 
 > **"Someone who knows every branch of AI."**
 
-I am trying to become:
+I am working toward becoming:
 
-> **"A software and DevOps engineer who can build, deploy, scale, evaluate, secure, and operate production AI systems."**
+> **"A software and DevOps engineer who can build, deploy, scale, evaluate, secure, and operate AI systems in production."**
 
-That is the direction I am currently working toward.
+That is the direction I am currently pursuing.
 
-The roadmap will probably change as I learn more.
+I am still learning the foundations.
 
-Some technologies will become less important.
+I am still building the projects.
 
-Others will become more relevant.
+I am still figuring out which parts of AI I want to specialize in most deeply.
 
-But the underlying objective should remain the same:
+But the destination is becoming clearer:
 
 \`\`\`
 Software Engineering
@@ -1447,14 +1457,14 @@ Infrastructure
         +
 Production Engineering
         ↓
-Production AI Systems
+Production AI
 \`\`\`
 
-For me, that is the most natural bridge from where I am today to where I want to be next.
+For me, that is the most natural bridge from where I am today to where I want to go next.
 
 The goal is not to leave DevOps behind.
 
 **The goal is to use everything I already know as leverage while moving deeper into AI.**
 `,
-  },
+},
 ];
