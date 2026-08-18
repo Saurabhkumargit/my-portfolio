@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaJs, FaReact, FaNodeJs, FaPython, FaDatabase, FaDocker, FaAws, FaLinux, FaNetworkWired, FaProjectDiagram, FaBolt } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiCplusplus, SiTypescript, SiChakraui, SiExpress, SiMongodb, SiRedis, SiPrisma, SiKubernetes, SiGithubactions, SiNumpy } from "react-icons/si";
+import { SiCplusplus, SiTypescript, SiChakraui, SiExpress, SiMongodb, SiRedis, SiPrisma, SiKubernetes, SiGithubactions, SiNumpy, SiPandas } from "react-icons/si";
 import { TbApi, TbPlugConnected } from "react-icons/tb";
 
 export default function Skills() {
@@ -13,32 +13,33 @@ export default function Skills() {
     { id: 3, name: "TypeScript", icon: SiTypescript },
     { id: 4, name: "Python", icon: FaPython },
     { id: 5, name: "NumPy", icon: SiNumpy },
-    { id: 6, name: "SQL", icon: FaDatabase },
+    { id: 6, name: "Pandas", icon: SiPandas },
+    { id: 7, name: "SQL", icon: FaDatabase },
     
-    { id: 7, name: "React", icon: FaReact },
-    { id: 8, name: "Next.js", icon: RiNextjsFill },
-    { id: 9, name: "Tailwind CSS", icon: RiTailwindCssFill },
-    { id: 10, name: "Chakra UI", icon: SiChakraui },
+    { id: 8, name: "React", icon: FaReact },
+    { id: 9, name: "Next.js", icon: RiNextjsFill },
+    { id: 10, name: "Tailwind CSS", icon: RiTailwindCssFill },
+    { id: 11, name: "Chakra UI", icon: SiChakraui },
     
-    { id: 11, name: "Node.js", icon: FaNodeJs },
-    { id: 12, name: "Express.js", icon: SiExpress },
-    { id: 13, name: "REST APIs", icon: TbApi },
-    { id: 14, name: "WebSockets", icon: TbPlugConnected },
+    { id: 12, name: "Node.js", icon: FaNodeJs },
+    { id: 13, name: "Express.js", icon: SiExpress },
+    { id: 14, name: "REST APIs", icon: TbApi },
+    { id: 15, name: "WebSockets", icon: TbPlugConnected },
     
-    { id: 15, name: "PostgreSQL", icon: BiLogoPostgresql },
-    { id: 16, name: "MongoDB", icon: SiMongodb },
-    { id: 17, name: "Redis", icon: SiRedis },
-    { id: 18, name: "Prisma", icon: SiPrisma },
+    { id: 16, name: "PostgreSQL", icon: BiLogoPostgresql },
+    { id: 17, name: "MongoDB", icon: SiMongodb },
+    { id: 18, name: "Redis", icon: SiRedis },
+    { id: 19, name: "Prisma", icon: SiPrisma },
     
-    { id: 19, name: "Docker", icon: FaDocker },
-    { id: 20, name: "Kubernetes", icon: SiKubernetes },
-    { id: 21, name: "AWS", icon: FaAws },
-    { id: 22, name: "GitHub Actions", icon: SiGithubactions },
-    { id: 23, name: "Linux", icon: FaLinux },
+    { id: 20, name: "Docker", icon: FaDocker },
+    { id: 21, name: "Kubernetes", icon: SiKubernetes },
+    { id: 22, name: "AWS", icon: FaAws },
+    { id: 23, name: "GitHub Actions", icon: SiGithubactions },
+    { id: 24, name: "Linux", icon: FaLinux },
     
-    { id: 24, name: "System Design", icon: FaNetworkWired },
-    { id: 25, name: "Concurrency", icon: FaProjectDiagram },
-    { id: 26, name: "Event-Driven", icon: FaBolt },
+    { id: 25, name: "System Design", icon: FaNetworkWired },
+    { id: 26, name: "Concurrency", icon: FaProjectDiagram },
+    { id: 27, name: "Event-Driven", icon: FaBolt },
   ]);
 
   return (
