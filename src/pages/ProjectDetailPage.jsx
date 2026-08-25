@@ -5,6 +5,7 @@ import { BsGithub } from 'react-icons/bs';
 import { TbExternalLink, TbArrowLeft } from 'react-icons/tb';
 import { projects } from '../data/projects';
 import ImageSlideshow from '../components/shared/ImageSlideshow';
+import MarkdownRenderer from '../components/shared/MarkdownRenderer';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
@@ -194,24 +195,41 @@ export default function ProjectDetailPage() {
           </div>
         </motion.section>
 
-        {/* Case study placeholder */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="border-l-4 border-black pl-6 py-2"
-        >
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-3">Engineering Case Study</h2>
-          <p className="text-sm md:text-base text-[#71717A] leading-relaxed">
-            A detailed write-up covering architecture decisions, challenges faced, and lessons
-            learned is being prepared. Check back soon — or read the related{' '}
-            <Link to="/blog" className="font-semibold underline hover:opacity-60 transition-opacity">
-              blog articles
-            </Link>{' '}
-            for in-depth technical coverage.
-          </p>
-        </motion.section>
+        {/* Case study section */}
+        {project.caseStudy ? (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="pt-10 border-t-2 border-zinc-200"
+          >
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-8 text-black">
+              Engineering Case Study
+            </h2>
+            <div className="bg-white rounded-2xl border border-zinc-200 p-6 md:p-10 shadow-sm">
+              <MarkdownRenderer content={project.caseStudy} />
+            </div>
+          </motion.section>
+        ) : (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="border-l-4 border-black pl-6 py-2"
+          >
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-3">Engineering Case Study</h2>
+            <p className="text-sm md:text-base text-[#71717A] leading-relaxed">
+              A detailed write-up covering architecture decisions, challenges faced, and lessons
+              learned is being prepared. Check back soon — or read the related{' '}
+              <Link to="/blog" className="font-semibold underline hover:opacity-60 transition-opacity">
+                blog articles
+              </Link>{' '}
+              for in-depth technical coverage.
+            </p>
+          </motion.section>
+        )}
       </div>
     </div>
   );

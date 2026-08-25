@@ -14,6 +14,7 @@ import realtime2 from '../assets/realtimecodeeditor/realtimedemo2.png';
 import realtime3 from '../assets/realtimecodeeditor/realtimedemo3.png';
 
 import unfeedCover from '../assets/unfeed/unfeedCover.png';
+import { unfeedCaseStudy } from './caseStudies/unfeed';
 
 export const projects = [
   {
@@ -116,6 +117,7 @@ export const projects = [
       '100% local-first with zero tracking or telemetry',
       'Resilient SPA navigation & dynamic DOM mutation handling',
     ],
+    caseStudy: unfeedCaseStudy,
   },
   {
     id: 4,
