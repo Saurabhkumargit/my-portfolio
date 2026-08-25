@@ -1,3 +1,4 @@
+import devboardCover from '../assets/devboard/devboardCover.png';
 import devboard1 from '../assets/devboard/devboarddemo1.png';
 import devboard2 from '../assets/devboard/devboarddemo2.png';
 import devboard3 from '../assets/devboard/devboarddemo3.png';
@@ -7,9 +8,12 @@ import devboard6 from '../assets/devboard/devboarddemo6.png';
 import devboard7 from '../assets/devboard/devboarddemo7.png';
 import devboard8 from '../assets/devboard/devboarddemo8.png';
 
+import realtimeCover from '../assets/realtimecodeeditor/realtimeCover.png';
 import realtime1 from '../assets/realtimecodeeditor/realtimedemo1.png';
 import realtime2 from '../assets/realtimecodeeditor/realtimedemo2.png';
 import realtime3 from '../assets/realtimecodeeditor/realtimedemo3.png';
+
+import unfeedCover from '../assets/unfeed/unfeedCover.png';
 
 export const projects = [
   {
@@ -40,7 +44,7 @@ export const projects = [
     completed: true,
     category: 'devops',
     year: 2026,
-    coverImage: devboard1,
+    coverImage: devboardCover,
     screenshots: [
       devboard1,
       devboard2,
@@ -72,7 +76,7 @@ export const projects = [
     completed: true,
     category: 'real-time',
     year: 2026,
-    coverImage: realtime1,
+    coverImage: realtimeCover,
     screenshots: [
       realtime1,
       realtime2,
@@ -82,6 +86,39 @@ export const projects = [
   },
   {
     id: 3,
+    slug: 'unfeed',
+    title: 'UnFeed',
+    shortDescription:
+      'A Chrome extension that removes YouTube distractions while preserving your chosen video experience. Focus on learning, not browsing.',
+    fullDescription:
+      'UnFeed is a distraction-free Chrome extension built with React, Vite, and Manifest V3 designed to help users stay focused while studying or learning on YouTube without getting pulled into endless algorithmic rabbit holes.\n\nFeatures 3 distinct focus levels (Light, Study, Deep) that dynamically hide recommendation sidebars, Shorts feeds, comments, and end-screen suggestions while ensuring video playback remains completely unhindered.\n\nEngineered with an isolated YouTube DOM adapter and MutationObservers to survive dynamic single-page application (SPA) navigation and DOM updates. Features session persistence via chrome.storage and timer alarms with zero tracking, external requests, or data collection.',
+    technologies: [
+      'React',
+      'Vite',
+      'Chrome Extension MV3',
+      'JavaScript',
+      'Service Workers',
+      'CRXJS',
+      'Tailwind CSS',
+    ],
+    github: 'https://github.com/Saurabhkumargit/UnFeed',
+    liveDemo: '',
+    homepage: false,
+    completed: true,
+    category: 'Browser Extension',
+    year: 2026,
+    coverImage: unfeedCover,
+    screenshots: [
+      unfeedCover,
+    ],
+    metrics: [
+      '3 Focus Levels: Light, Study, Deep',
+      '100% local-first with zero tracking or telemetry',
+      'Resilient SPA navigation & dynamic DOM mutation handling',
+    ],
+  },
+  {
+    id: 4,
     slug: 'system-monitor',
     title: 'System Monitor',
     shortDescription:
@@ -90,6 +127,7 @@ export const projects = [
       'A lightweight but capable system monitoring tool that tracks CPU, memory, disk I/O, and network usage across distributed nodes in real time. Metrics are streamed via WebSockets and visualized on a live dashboard. Alerting rules can be configured per metric with configurable thresholds.\n\nBuilt with extensibility in mind — new metric collectors can be added as plugins without modifying the core monitoring engine.',
     technologies: ['Node.js', 'WebSockets', 'React', 'Prometheus', 'Chart.js'],
     github: 'https://github.com/Saurabhkumargit/System-Monitor/',
+    liveDemo: '',
     homepage: false,
     completed: true,
     category: 'devops',
@@ -99,7 +137,7 @@ export const projects = [
     metrics: [],
   },
   {
-    id: 4,
+    id: 5,
     slug: 'inventory-manager',
     title: 'Inventory Manager',
     shortDescription:
@@ -108,6 +146,7 @@ export const projects = [
       'A full-stack inventory management system designed for small-to-medium businesses. Features include role-based access control (admin, manager, viewer), real-time stock updates, complete audit logging for all inventory mutations, and exportable reports in CSV format.\n\nBuilt with an Express.js REST API backend, a MongoDB database, and a React frontend using Chakra UI components for a clean, accessible interface.',
     technologies: ['React', 'Express.js', 'MongoDB', 'Chakra UI', 'JWT'],
     github: 'https://github.com/Saurabhkumargit/Inventory-Manager/',
+    liveDemo: '',
     homepage: false,
     completed: true,
     category: 'fullstack',
@@ -117,7 +156,7 @@ export const projects = [
     metrics: [],
   },
   {
-    id: 5,
+    id: 6,
     slug: 'sorting-visualizer',
     title: 'Sorting Visualizer',
     shortDescription:
@@ -126,6 +165,7 @@ export const projects = [
       'A high-performance desktop application designed to visually demonstrate the behavior of six classic sorting algorithms. The visualizer uses animated, color-coded bars to represent array elements, showing real-time comparisons, swaps, and final sorting states.\n\nBuilt natively with C++17 and SDL2 for smooth, hardware-accelerated rendering. It features adjustable array size and delay settings (configurable via the source code) and clean, outlined bars to maximize clarity. This tool serves as an intuitive educational resource for students, educators, and anyone interested in understanding data structures and algorithms.',
     technologies: ['C++', 'SDL2', 'MinGW', 'C++17'],
     github: 'https://github.com/Saurabhkumargit/sortingvisualizer/',
+    liveDemo: '',
     homepage: false,
     completed: true,
     category: 'Algorithms & Data Structures',

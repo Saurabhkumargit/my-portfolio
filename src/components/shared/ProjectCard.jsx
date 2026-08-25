@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TbExternalLink } from 'react-icons/tb';
 import { BsGithub } from 'react-icons/bs';
-import ImageSlideshow from './ImageSlideshow';
 
 /**
  * ProjectCard – the alternating-row project card used on the homepage
@@ -13,7 +12,7 @@ import ImageSlideshow from './ImageSlideshow';
  * @param {number} index    - Position in the rendered list (drives alternation & animation)
  */
 export default function ProjectCard({ project, index }) {
-  const hasImage = project.coverImage || (project.screenshots && project.screenshots.length > 0);
+  const displayImage = project.coverImage || (project.screenshots && project.screenshots[0]);
 
   return (
     <motion.div
@@ -25,30 +24,22 @@ export default function ProjectCard({ project, index }) {
       transition={{ type: 'spring', stiffness: 80, damping: 10, delay: 0.1 }}
       viewport={{ once: true }}
     >
-      {/* Thumbnail or Slideshow */}
-      {project.screenshots && project.screenshots.length > 0 ? (
-        <div className="lg:w-[50%] w-full rounded-2xl overflow-hidden border border-zinc-800 block relative aspect-video shrink-0">
-          <ImageSlideshow
-            images={project.screenshots}
-            title={project.title}
-            linkTo={`/projects/${project.slug}`}
-          />
-        </div>
-      ) : project.coverImage ? (
+      {/* Cover Image Thumbnail */}
+      {displayImage && (
         <Link
           to={`/projects/${project.slug}`}
-          className="lg:w-[50%] w-full rounded-2xl overflow-hidden border border-zinc-800 block aspect-video shrink-0"
+          className="lg:w-[50%] w-full rounded-2xl overflow-hidden border border-zinc-800 block aspect-video shrink-0 group/cover"
         >
           <img
             className="w-full h-full hover:scale-105 transition-all duration-500 cursor-pointer object-cover"
-            src={project.coverImage}
+            src={displayImage}
             alt={project.title}
           />
         </Link>
-      ) : null}
+      )}
 
       {/* Info */}
-      <div className={`w-full ${hasImage ? 'lg:w-[50%]' : ''} lg:space-y-6 space-y-4`}>
+      <div className={`w-full ${displayImage ? 'lg:w-[50%]' : ''} lg:space-y-6 space-y-4`}>
         <h2 className="font-extrabold text-white mt-5 lg:mt-0 text-3xl md:text-4xl lg:text-5xl xl:text-6xl opacity-20">
           {String(index + 1).padStart(2, '0')}
         </h2>
@@ -85,24 +76,28 @@ export default function ProjectCard({ project, index }) {
 
         {/* Links */}
         <div className="flex gap-5 pt-4 flex-wrap">
-          <a
-            href={project.github}
-            className="text-white hover:text-gray-400 transition-colors flex items-center gap-2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <BsGithub size={20} />
-            <span className="text-xs md:text-sm font-semibold">GitHub</span>
-          </a>
-          <a
-            href={project.liveDemo}
-            className="text-white hover:text-gray-400 transition-colors flex items-center gap-2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <TbExternalLink size={22} />
-            <span className="text-xs md:text-sm font-semibold">Live Demo</span>
-          </a>
+          {project.github && (
+            <a
+              href={project.github}
+              className="text-white hover:text-gray-400 transition-colors flex items-center gap-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BsGithub size={20} />
+              <span className="text-xs md:text-sm font-semibold">GitHub</span>
+            </a>
+          )}
+          {project.liveDemo && (
+            <a
+              href={project.liveDemo}
+              className="text-white hover:text-gray-400 transition-colors flex items-center gap-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TbExternalLink size={22} />
+              <span className="text-xs md:text-sm font-semibold">Live Demo</span>
+            </a>
+          )}
           <Link
             to={`/projects/${project.slug}`}
             className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1 text-xs md:text-sm font-semibold"

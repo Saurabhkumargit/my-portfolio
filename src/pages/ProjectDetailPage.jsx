@@ -85,22 +85,26 @@ export default function ProjectDetailPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
         >
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white font-semibold rounded border-2 border-black hover:bg-white hover:text-black transition-all"
-          >
-            <BsGithub className="w-4 h-4 md:w-5 md:h-5" /> GitHub
-          </a>
-          <a
-            href={project.liveDemo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded border-2 border-black hover:bg-black hover:text-white transition-all"
-          >
-            <TbExternalLink className="w-4 h-4 md:w-5 md:h-5" /> Live Demo
-          </a>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white font-semibold rounded border-2 border-black hover:bg-white hover:text-black transition-all"
+            >
+              <BsGithub className="w-4 h-4 md:w-5 md:h-5" /> GitHub
+            </a>
+          )}
+          {project.liveDemo && (
+            <a
+              href={project.liveDemo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded border-2 border-black hover:bg-black hover:text-white transition-all"
+            >
+              <TbExternalLink className="w-4 h-4 md:w-5 md:h-5" /> Live Demo
+            </a>
+          )}
         </motion.div>
       </div>
 
