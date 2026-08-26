@@ -1514,7 +1514,7 @@ Meet **UnFeed**.
 
 ## The idea
 
-// The first thought I had was simple:
+The first thought I had was simple:
 
 > What if I could keep the video I intentionally opened, while removing everything that tries to make me watch something else?
 
