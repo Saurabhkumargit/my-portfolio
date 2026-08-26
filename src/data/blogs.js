@@ -1518,7 +1518,7 @@ The first thought I had was simple:
 
 > What if I could keep the video I intentionally opened, while removing everything that tries to make me watch something else?
 
-// I didn't want another website blocker.
+I didn't want another website blocker.
 
 I didn't want to completely block YouTube.
 
