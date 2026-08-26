@@ -1467,4 +1467,596 @@ The goal is not to leave DevOps behind.
 **The goal is to use everything I already know as leverage while moving deeper into AI.**
 `,
 },
+
+{
+  id: 3,
+  slug: "building-unfeed-chrome-extension",
+  title: "I Built a Chrome Extension Because YouTube Kept Distracting Me",
+  description:
+    "A deep dive into building UnFeed, a Chrome extension that removes YouTube distractions through configurable focus modes, persistent sessions, dynamic DOM handling, SPA navigation detection, and Chrome Manifest V3 service workers.",
+  date: 'August 26, 2026',
+  readTime: "10 min read",
+  tags: [
+    "Chrome Extensions",
+    "JavaScript",
+    "React",
+    "Manifest V3",
+    "Browser APIs",
+    "Productivity"
+  ],
+  homepage: true,
+  coverImage: null,
+  content: `## Introduction
+
+I use YouTube a lot for learning.
+
+Lectures, tutorials, documentation walkthroughs, conference talks — a lot of the things I want to learn are on YouTube.
+
+The problem is that YouTube doesn't really care **why** I opened it.
+
+I might open YouTube with the intention of watching a 20-minute lecture, watch the video for 10 minutes, and then notice a recommended video that looks interesting.
+
+One click becomes another.
+
+Then another.
+
+And suddenly I'm no longer learning what I originally came for.
+
+The frustrating part is that I didn't actually want to stop using YouTube. **I needed YouTube.**
+
+I just didn't need everything around the video.
+
+So I decided to build something about it.
+
+Meet **UnFeed**.
+
+---
+
+## The idea
+
+The first thought I had was simple:
+
+> What if I could keep the video I intentionally opened, while removing everything that tries to make me watch something else?
+
+I didn't want another website blocker.
+
+I didn't want to completely block YouTube.
+
+And I didn't want an AI system deciding what I should or shouldn't watch.
+
+I wanted something much simpler:
+
+**You choose the video. UnFeed removes the distractions.**
+
+That became the core idea behind the project.
+
+---
+
+## From "hide recommendations" to an actual focus system
+
+My first instinct was that this would be a pretty small project.
+
+Find the recommendation elements.
+
+Hide them with CSS.
+
+Done.
+
+That assumption lasted about five minutes.
+
+YouTube is not a static webpage.
+
+It's a heavily dynamic application with client-side navigation and a DOM that changes constantly.
+
+Recommendations can appear after the page loads. Moving from one video to another doesn't necessarily reload the page. The video element itself can be replaced.
+
+And because this was going to be a Chrome extension, there was another problem:
+
+**the extension's background process doesn't simply stay alive forever.**
+
+So I ended up building something considerably more interesting than a collection of CSS selectors.
+
+---
+
+# Three levels of focus
+
+I wanted the extension to be useful for different situations rather than forcing one extreme mode.
+
+So UnFeed has three focus levels.
+
+### Light
+
+This is the least aggressive mode.
+
+It removes things like:
+
+- Recommended videos
+- Related videos
+- End-screen recommendations
+- Autoplay suggestions
+- Home feed content
+
+But it keeps most of the normal video experience.
+
+### Study
+
+Study mode goes further.
+
+It also removes:
+
+- Comments
+- Shorts
+- The recommendation sidebar
+- Additional information cards
+
+The idea is to turn YouTube into more of a learning environment.
+
+### Deep
+
+And then there's Deep mode.
+
+This is for when I really don't want anything competing for my attention.
+
+It removes even more of the surrounding interface, including:
+
+- Search
+- Channel information
+- Description
+- Like/share actions
+- Additional navigation elements
+
+The goal is basically:
+
+**video + controls + nothing else.**
+
+And importantly, the video player itself stays intact.
+
+---
+
+# The first real engineering problem: YouTube doesn't stay still
+
+One of the first things I ran into was YouTube's dynamic DOM.
+
+If I hide a recommendation when the page loads, that doesn't mean another recommendation won't appear five seconds later.
+
+YouTube can dynamically insert new elements while the user scrolls or interacts with the page.
+
+So UnFeed uses a \`MutationObserver\` to watch for relevant DOM changes.
+
+But even that creates another problem.
+
+You don't want to run expensive DOM queries every time *anything* changes on the page.
+
+That could mean the extension itself becomes a performance problem.
+
+So I added a few safeguards:
+
+- Only structural DOM additions are observed.
+- Extension-managed elements are ignored.
+- Mutations are filtered before doing actual work.
+- Focus reapplication is debounced.
+
+The basic flow became:
+
+\`\`\`
+YouTube changes DOM
+       ↓
+MutationObserver
+       ↓
+Filter irrelevant changes
+       ↓
+Debounce
+       ↓
+Reapply focus rules
+\`\`\`
+
+That was my first reminder that browser extensions aren't just about manipulating the DOM.
+
+You have to respect the environment you're running inside.
+
+---
+
+# Then YouTube navigation broke the simple approach
+
+Another problem showed up when navigating between videos.
+
+YouTube behaves more like a single-page application than a traditional collection of independent pages.
+
+So this:
+
+\`\`\`
+Video A
+  ↓
+Video B
+\`\`\`
+
+doesn't necessarily mean:
+
+\`\`\`
+Unload everything
+  ↓
+Load a completely new page
+\`\`\`
+
+The existing page can remain alive while YouTube replaces parts of the interface.
+
+That meant UnFeed needed to detect navigation independently.
+
+I ended up using multiple signals, including YouTube's navigation event and browser history changes, with additional fallback handling.
+
+When navigation happens, UnFeed needs to:
+
+1. Detect the new video ID.
+2. Tell the background service worker.
+3. Reapply the current focus level.
+4. Remove listeners attached to the previous video.
+5. Find the new video element.
+6. Attach the appropriate event listeners again.
+
+That sounds straightforward now.
+
+It wasn't particularly straightforward while debugging it.
+
+---
+
+# The service worker problem
+
+This was probably the most interesting part of the project for me.
+
+Chrome Manifest V3 uses service workers for background logic.
+
+The important thing about service workers is that **you cannot assume they'll stay running continuously.**
+
+So I couldn't build a timer like:
+
+\`\`\`js
+let remainingTime = 1800;
+
+setInterval(() => {
+    remainingTime--;
+}, 1000);
+\`\`\`
+
+and expect it to be reliable.
+
+The worker could be suspended.
+
+If the state existed only in memory, the session could become inconsistent.
+
+So instead, I made the background service worker the source of truth and persisted the session using Chrome storage.
+
+For a timed session, I store an absolute expiration timestamp:
+
+\`\`\`
+startedAt
+endAt
+\`\`\`
+
+Then remaining time is simply:
+
+\`\`\`
+endAt - currentTime
+\`\`\`
+
+The extension also uses \`chrome.alarms\` to handle timer expiry.
+
+That means this can happen:
+
+\`\`\`
+Start 30-minute session
+        ↓
+Close popup
+        ↓
+Service worker gets suspended
+        ↓
+Chrome wakes it when necessary
+        ↓
+Session state is still available
+        ↓
+Timer expires
+        ↓
+Focus mode is removed
+\`\`\`
+
+The popup itself is therefore **not** responsible for keeping the session alive.
+
+It's just a UI for controlling and displaying the session.
+
+That distinction ended up being one of the most important architectural decisions in the project.
+
+---
+
+# "Until video ends" was another interesting case
+
+I also wanted users to be able to say:
+
+> Keep focus mode active until this video finishes.
+
+That sounds simple until you consider how YouTube works.
+
+The video element might not exist immediately.
+
+It can be replaced during navigation.
+
+And the user can navigate to another video without a full page reload.
+
+So the content script has to:
+
+- Find the video element.
+- Wait if it isn't available yet.
+- Attach an \`ended\` listener.
+- Remove the old listener when necessary.
+- Detect video changes.
+- Tell the background worker when the video finishes.
+
+The resulting flow is roughly:
+
+\`\`\`
+Video ends
+    ↓
+Content script detects "ended"
+    ↓
+Send VIDEO_ENDED
+    ↓
+Background verifies session
+    ↓
+Session ends
+    ↓
+Remove focus classes
+\`\`\`
+
+I also decided that if a user starts an "until video ends" session for Video A and navigates to Video B, the session should end.
+
+Otherwise the meaning of the session silently changes.
+
+That kind of small product decision ended up affecting the architecture.
+
+---
+
+# I also didn't want to break YouTube
+
+There was one rule I kept coming back to:
+
+**If UnFeed breaks the video player, the extension has failed.**
+
+I didn't want to delete YouTube elements from the DOM and then try to reconstruct them later.
+
+Instead, UnFeed applies its own CSS classes to elements it wants to hide.
+
+So the process is reversible:
+
+\`\`\`
+Normal YouTube
+     ↓
+Add focus classes
+     ↓
+Distractions hidden
+     ↓
+Remove focus classes
+     ↓
+Normal YouTube again
+\`\`\`
+
+This is also why the extension doesn't try to manipulate the actual video player.
+
+The player, playback controls, captions, fullscreen, keyboard shortcuts, seeking, and other core functionality should continue working.
+
+I tested these behaviors as part of the MVP.
+
+---
+
+# Keeping YouTube's changing DOM manageable
+
+There's another uncomfortable truth about this project:
+
+**I don't control YouTube.**
+
+YouTube can change its DOM whenever it wants.
+
+That means selectors such as:
+
+\`\`\`
+#secondary
+#comments
+#owner
+#actions
+\`\`\`
+
+should never be treated as a permanent API.
+
+Instead of scattering selectors throughout the codebase, I created a dedicated YouTube adapter that centralizes them.
+
+So if YouTube changes something, the maintenance path is roughly:
+
+\`\`\`
+YouTube changes DOM
+       ↓
+Update youtubeAdapter.js
+       ↓
+Rebuild
+       ↓
+Test
+\`\`\`
+
+That doesn't make the extension immune to YouTube changes.
+
+It just makes the damage much easier to contain.
+
+And I think that's an important engineering distinction:
+
+**You can't always eliminate fragility. Sometimes you can only isolate it.**
+
+---
+
+# What the architecture ended up looking like
+
+The final extension has three main runtime pieces:
+
+\`\`\`
+                 React Popup
+                    │
+                    │ messages
+                    ▼
+          Background Service Worker
+                    │
+                    │ messages
+                    ▼
+              YouTube Content Script
+                    │
+                    ▼
+                 YouTube DOM
+\`\`\`
+
+The responsibilities are deliberately separated.
+
+### Popup
+
+Handles the user interface:
+
+- Focus level
+- Session duration
+- Timer display
+- Start/stop controls
+- Current state
+
+### Background service worker
+
+Owns the actual session:
+
+- Session creation
+- Persistence
+- Timer alarms
+- Session expiration
+- Message routing
+- Tab lifecycle
+
+### Content script
+
+Owns YouTube:
+
+- DOM manipulation
+- Focus CSS
+- Navigation detection
+- Dynamic DOM observation
+- Video events
+
+This separation became important because each part has a different lifecycle.
+
+---
+
+# Testing it
+
+I didn't want to stop at "the extension loads."
+
+I tested the actual behavior of the system.
+
+Some of the scenarios included:
+
+- Starting and stopping focus sessions
+- Switching focus levels during an active session
+- Timer persistence after closing the popup
+- Timer expiration
+- Video-end sessions
+- Navigating between videos
+- Dynamically loaded recommendations
+- Closing the originating tab
+- Service-worker suspension
+- Playback controls
+- Captions
+- Fullscreen
+- Keyboard shortcuts
+
+The MVP passed the test cases I defined for these behaviors.
+
+That doesn't mean UnFeed is bug-proof.
+
+In particular, its dependence on YouTube's DOM means future YouTube changes can still break parts of the extension.
+
+But the important thing is that I now have a clear place to fix those changes rather than having selectors and behavior scattered throughout the codebase.
+
+---
+
+# What I learned from building it
+
+The project started because I wanted to solve a personal productivity problem.
+
+But the thing I ended up learning wasn't really about productivity.
+
+It was about **working inside a system you don't control.**
+
+YouTube controls the DOM.
+
+Chrome controls the extension lifecycle.
+
+The browser controls when the service worker runs.
+
+The user controls navigation.
+
+The video controls its own playback lifecycle.
+
+UnFeed has to sit between all of those things and remain reliable.
+
+That forced me to think much more carefully about:
+
+- State ownership
+- Event-driven architecture
+- Persistence
+- Browser lifecycle
+- DOM observers
+- Defensive programming
+- Reversible UI manipulation
+- Failure handling
+
+The biggest lesson was probably this:
+
+> **The hard part of software is often not making something work once. It's making it continue working when everything around it changes.**
+
+---
+
+# What's next?
+
+UnFeed is currently an MVP, so there are plenty of directions I could take it.
+
+Some of the ideas I have are:
+
+- Scheduled focus sessions
+- Playlist/course mode
+- Session statistics
+- Channel allowlists
+- More granular focus settings
+- Better support for multiple YouTube tabs
+- Potential cross-browser support
+
+I'm deliberately not trying to build all of them immediately.
+
+The current version already solves the problem I originally built it for:
+
+**I can open a YouTube lecture, turn on Focus Mode, and remove most of the reasons to leave that lecture.**
+
+And honestly, that's enough for version one.
+
+---
+
+# Final thoughts
+
+I started UnFeed because I was getting distracted while trying to learn from YouTube.
+
+I expected to spend some time writing CSS and building a small Chrome extension.
+
+Instead, I ended up dealing with service-worker lifecycles, persistent state, SPA navigation, dynamic DOM updates, media events, message passing, and the general problem of building on top of a platform whose internals can change at any time.
+
+That's probably my favorite part about side projects.
+
+You start with:
+
+> "I have a small problem."
+
+And somewhere along the way, the problem teaches you something you didn't expect to learn.
+
+For me, UnFeed started as a tool to help me focus.
+
+It ended up becoming a pretty good lesson in building reliable software inside someone else's ecosystem.
+
+**If you want to see the technical implementation in more detail, I've documented the architecture and engineering decisions on the [UnFeed project page].**`,
+},
 ];
