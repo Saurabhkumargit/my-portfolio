@@ -1,3 +1,10 @@
+import happitCover from '../assets/happit/happitCover.png';
+import happitDemo1 from '../assets/happit/happitDemo1.png';
+import happitDemo2 from '../assets/happit/happitDemo2.png';
+import happitDemo3 from '../assets/happit/happitDemo3.png';
+import happitDemo4 from '../assets/happit/happitDemo4.png';
+import { happitCaseStudy } from './caseStudies/happit';
+
 import devboardCover from '../assets/devboard/devboardCover.png';
 import devboard1 from '../assets/devboard/devboarddemo1.png';
 import devboard2 from '../assets/devboard/devboarddemo2.png';
@@ -19,6 +26,49 @@ import { unfeedCaseStudy } from './caseStudies/unfeed';
 export const projects = [
   {
     id: 1,
+    slug: 'happit',
+    title: 'Happit',
+    shortDescription:
+      'A habit-building and consistency-tracking app focused on sustainable routines, meaningful activity tracking, and visible progress.',
+    fullDescription:
+      'Happit is a full-stack habit-building application built around the idea that consistency matters more than perfection. Users adopt habits from a curated catalog, record activities through a timer or manual logging, and review their activity history and progress over time.\n\nBuilt with React, Vite, TypeScript, Node.js, Express, PostgreSQL, and Drizzle ORM, the application includes session-based authentication, habit management, activity validation, idempotency protection, and progress views. The frontend and API are deployed separately, with PostgreSQL hosted on Neon.\n\nThe product emphasizes a minimal dark interface, an installable Progressive Web App experience, and a focused MVP foundation designed to support future progression systems and social features.',
+    technologies: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Node.js',
+      'Express',
+      'PostgreSQL',
+      'Drizzle ORM',
+      'Zod',
+      'Vitest',
+      'Vercel',
+      'Render',
+      'Neon',
+      'PWA',
+    ],
+    github: 'https://github.com/Saurabhkumargit/happit',
+    liveDemo: 'https://happit.online',
+    homepage: true,
+    completed: true,
+    category: 'fullstack',
+    year: 2026,
+    coverImage: happitCover,
+    screenshots: [
+      happitDemo1,
+      happitDemo2,
+      happitDemo3,
+      happitDemo4,
+    ],
+    metrics: [
+      'Full-stack TypeScript monorepo with separate web and API workspaces',
+      'Production deployment using Vercel, Render, and Neon PostgreSQL',
+      'Timer-based and manual activity tracking with idempotency protection',
+    ],
+    caseStudy: happitCaseStudy,
+  },
+  {
+    id: 2,
     slug: 'devboard',
     title: 'DevBoard',
     shortDescription:
@@ -63,14 +113,20 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     slug: 'realtime-code-editor',
     title: 'Real-Time Collaborative Code Editor',
     shortDescription:
       'Collaborative coding platform supporting synchronized multi-user editing in real time.',
     fullDescription:
       'A real-time collaborative code editor built on WebSockets using Socket.IO. The platform supports multiple users editing the same document simultaneously, with live presence tracking showing active collaborators, a room-based architecture for session isolation, and intelligent reconnection logic to handle network disruptions gracefully.\n\nThe synchronization engine uses an event-driven approach to broadcast diff updates between clients, minimizing data transfer while maintaining consistent state across all connected sessions.',
-    technologies: ['Node.js', 'React', 'Socket.IO', 'WebSockets', 'Express.js'],
+    technologies: [
+      'Node.js',
+      'React',
+      'Socket.IO',
+      'WebSockets',
+      'Express.js',
+    ],
     github: 'https://github.com/Saurabhkumargit/RealTime-CodeEditor/',
     liveDemo: 'https://synccodex.vercel.app/',
     homepage: true,
@@ -86,7 +142,7 @@ export const projects = [
     metrics: [],
   },
   {
-    id: 3,
+    id: 4,
     slug: 'unfeed',
     title: 'UnFeed',
     shortDescription:
@@ -120,14 +176,20 @@ export const projects = [
     caseStudy: unfeedCaseStudy,
   },
   {
-    id: 4,
+    id: 5,
     slug: 'system-monitor',
     title: 'System Monitor',
     shortDescription:
       'Real-time system resource monitoring and alerting platform for distributed infrastructure.',
     fullDescription:
       'A lightweight but capable system monitoring tool that tracks CPU, memory, disk I/O, and network usage across distributed nodes in real time. Metrics are streamed via WebSockets and visualized on a live dashboard. Alerting rules can be configured per metric with configurable thresholds.\n\nBuilt with extensibility in mind — new metric collectors can be added as plugins without modifying the core monitoring engine.',
-    technologies: ['Node.js', 'WebSockets', 'React', 'Prometheus', 'Chart.js'],
+    technologies: [
+      'Node.js',
+      'WebSockets',
+      'React',
+      'Prometheus',
+      'Chart.js',
+    ],
     github: 'https://github.com/Saurabhkumargit/System-Monitor/',
     liveDemo: '',
     homepage: false,
@@ -139,14 +201,20 @@ export const projects = [
     metrics: [],
   },
   {
-    id: 5,
+    id: 6,
     slug: 'inventory-manager',
     title: 'Inventory Manager',
     shortDescription:
       'Scalable inventory tracking system with role-based access control and detailed reporting.',
     fullDescription:
       'A full-stack inventory management system designed for small-to-medium businesses. Features include role-based access control (admin, manager, viewer), real-time stock updates, complete audit logging for all inventory mutations, and exportable reports in CSV format.\n\nBuilt with an Express.js REST API backend, a MongoDB database, and a React frontend using Chakra UI components for a clean, accessible interface.',
-    technologies: ['React', 'Express.js', 'MongoDB', 'Chakra UI', 'JWT'],
+    technologies: [
+      'React',
+      'Express.js',
+      'MongoDB',
+      'Chakra UI',
+      'JWT',
+    ],
     github: 'https://github.com/Saurabhkumargit/Inventory-Manager/',
     liveDemo: '',
     homepage: false,
@@ -158,14 +226,19 @@ export const projects = [
     metrics: [],
   },
   {
-    id: 6,
+    id: 7,
     slug: 'sorting-visualizer',
     title: 'Sorting Visualizer',
     shortDescription:
       'Desktop application built with C++ and SDL2 that visually demonstrates how different sorting algorithms work using animated, color-coded bars.',
     fullDescription:
       'A high-performance desktop application designed to visually demonstrate the behavior of six classic sorting algorithms. The visualizer uses animated, color-coded bars to represent array elements, showing real-time comparisons, swaps, and final sorting states.\n\nBuilt natively with C++17 and SDL2 for smooth, hardware-accelerated rendering. It features adjustable array size and delay settings (configurable via the source code) and clean, outlined bars to maximize clarity. This tool serves as an intuitive educational resource for students, educators, and anyone interested in understanding data structures and algorithms.',
-    technologies: ['C++', 'SDL2', 'MinGW', 'C++17'],
+    technologies: [
+      'C++',
+      'SDL2',
+      'MinGW',
+      'C++17',
+    ],
     github: 'https://github.com/Saurabhkumargit/sortingvisualizer/',
     liveDemo: '',
     homepage: false,
@@ -180,7 +253,4 @@ export const projects = [
       'Interactive color-coded state tracking (comparisons, swaps, sorted)',
     ],
   },
-
-
-  
 ];
