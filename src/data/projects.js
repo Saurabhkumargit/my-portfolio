@@ -180,4 +180,7 @@ export const projects = [
       'Interactive color-coded state tracking (comparisons, swaps, sorted)',
     ],
   },
+
+
+  
 ];

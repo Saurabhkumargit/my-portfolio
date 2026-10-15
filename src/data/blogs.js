@@ -274,26 +274,18 @@ As I continue improving the project, I plan to explore managed Kubernetes cluste
 The application may be simple—but the engineering behind it is not.`,
   },
 
-{
-  id: 2,
-  slug: 'from-devops-to-ai-roadmap',
-  title: 'From DevOps to AI: The Roadmap I’m Following',
-  description:
-    'A practical roadmap for transitioning from backend, DevOps, and cloud engineering into AI, covering machine learning, deep learning, LLMs, RAG, agents, MLOps, LLMOps, and production AI systems.',
-  date: 'August 15, 2026',
-  readTime: '15 min read',
-  tags: [
-    'AI',
-    'AI Engineering',
-    'DevOps',
-    'MLOps',
-    'LLMs',
-    'RAG',
-    'GenAI',
-  ],
-  homepage: true,
-  coverImage: null,
-  content: `## Introduction
+  {
+    id: 2,
+    slug: "from-devops-to-ai-roadmap",
+    title: "From DevOps to AI: The Roadmap I’m Following",
+    description:
+      "A practical roadmap for transitioning from backend, DevOps, and cloud engineering into AI, covering machine learning, deep learning, LLMs, RAG, agents, MLOps, LLMOps, and production AI systems.",
+    date: "August 15, 2026",
+    readTime: "15 min read",
+    tags: ["AI", "AI Engineering", "DevOps", "MLOps", "LLMs", "RAG", "GenAI"],
+    homepage: true,
+    coverImage: null,
+    content: `## Introduction
 
 The traditional way of learning AI often starts with mathematics, machine learning algorithms, neural networks, and eventually deep learning.
 
@@ -1466,27 +1458,27 @@ The goal is not to leave DevOps behind.
 
 **The goal is to use everything I already know as leverage while moving deeper into AI.**
 `,
-},
+  },
 
-{
-  id: 3,
-  slug: "building-unfeed-chrome-extension",
-  title: "I Built a Chrome Extension Because YouTube Kept Distracting Me",
-  description:
-    "A deep dive into building UnFeed, a Chrome extension that removes YouTube distractions through configurable focus modes, persistent sessions, dynamic DOM handling, SPA navigation detection, and Chrome Manifest V3 service workers.",
-  date: 'August 26, 2026',
-  readTime: "10 min read",
-  tags: [
-    "Chrome Extensions",
-    "JavaScript",
-    "React",
-    "Manifest V3",
-    "Browser APIs",
-    "Productivity"
-  ],
-  homepage: true,
-  coverImage: null,
-  content: `## Introduction
+  {
+    id: 3,
+    slug: "building-unfeed-chrome-extension",
+    title: "I Built a Chrome Extension Because YouTube Kept Distracting Me",
+    description:
+      "A deep dive into building UnFeed, a Chrome extension that removes YouTube distractions through configurable focus modes, persistent sessions, dynamic DOM handling, SPA navigation detection, and Chrome Manifest V3 service workers.",
+    date: "August 26, 2026",
+    readTime: "10 min read",
+    tags: [
+      "Chrome Extensions",
+      "JavaScript",
+      "React",
+      "Manifest V3",
+      "Browser APIs",
+      "Productivity",
+    ],
+    homepage: true,
+    coverImage: null,
+    content: `## Introduction
 
 I use YouTube a lot for learning.
 
@@ -2058,5 +2050,562 @@ For me, UnFeed started as a tool to help me focus.
 It ended up becoming a pretty good lesson in building reliable software inside someone else's ecosystem.
 
 **If you want to see the technical implementation in more detail, I've documented the architecture and engineering decisions on the [UnFeed project page].**`,
-},
+  },
+
+  {
+    id: 4,
+    slug: "building-happit-habit-builder",
+    title:
+      "From a Simple Habit-Building Idea to a Production App: Building Happit",
+    description:
+      "The story behind Happit — from defining a product philosophy and writing a detailed PRD to building a full-stack habit tracker, designing its architecture, and deploying it to production.",
+    date: "October 15, 2026",
+    readTime: "12 min read",
+    tags: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Product Development",
+      "Full-Stack Development",
+    ],
+    homepage: true,
+    coverImage: null,
+    content: `## Introduction
+
+I've always found side projects interesting for a particular reason.
+
+They usually start with a small idea. Something you wish existed, something that could work a little better, or something you want to understand by building it yourself.
+
+But the interesting part begins when you stop thinking about the idea as a feature and start thinking about it as a product.
+
+That's exactly what happened with my latest project.
+
+I wanted to build a habit tracker.
+
+At first, that sounded relatively straightforward. Users would choose habits, record their progress, and see how consistently they were following their routines.
+
+There are already plenty of applications that do this. So the question wasn't really whether I could build another habit tracker.
+
+**The question was: what would make mine worth using?**
+
+That question eventually led to **Happit** — a habit-building and consistency-tracking application built around a simple principle:
+
+**Consistency matters more than perfection.**
+
+What started as a product idea turned into a detailed requirements document, a phased development process, a full-stack TypeScript monorepo, and eventually a live application running on its own domain.
+
+Here's how I got there.
+
+---
+
+## The idea: another habit tracker, but with a different philosophy
+
+The first thing I had to figure out wasn't the technology stack.
+
+It was the problem I wanted to solve.
+
+Habit trackers often revolve around a familiar interaction:
+
+You have a habit. You complete it. You check a box.
+
+Repeat that for a few days, and you have a streak.
+
+There's nothing inherently wrong with that approach. In fact, it works well for certain habits.
+
+But I wanted to explore something slightly different.
+
+**What if tracking a habit wasn't just about marking a task as complete, but about recording the effort you actually put into it?**
+
+Consider reading.
+
+One day, you might read five pages. Another day, you might read for forty minutes. Both sessions represent effort, even if they look different from a simple completed/not-completed status.
+
+The same applies to exercise, meditation, learning to code, and plenty of other activities.
+
+I wanted Happit to make that effort visible.
+
+Instead of building the product around a perfect streak, I wanted to build it around sustainable behavior, recorded activity, and progress over time.
+
+That became the foundation of the product.
+
+---
+
+## Defining the product before writing the code
+
+My next step was to turn the idea into something concrete.
+
+I didn't want to start building screens immediately and figure out the product as I went along. That approach can be fun for a small experiment, but a full-stack application needs more structure.
+
+So I worked on a detailed Product Requirements Document, or PRD.
+
+The goal was to establish a single source of truth for the project.
+
+It covered the product philosophy, target users, feature requirements, user flows, UI/UX expectations, database design, API behavior, security, testing, deployment, and the roadmap.
+
+More importantly, it helped me decide what Happit should *not* be.
+
+I didn't want a bloated productivity platform with dozens of features competing for attention.
+
+I wanted the core experience to remain focused:
+
+- Choose habits that matter to you.
+- Record the activities you perform.
+- Understand your progress.
+- Build routines that you can sustain.
+
+This led to a few product principles that influenced almost every major decision.
+
+### Consistency over perfection
+
+Missing a day shouldn't make previous effort feel worthless.
+
+### Progress over punishment
+
+The application should help users understand their behavior, not make them feel guilty about it.
+
+### Simplicity over feature bloat
+
+Every feature should improve the core habit-building experience.
+
+### Real activity over empty checkboxes
+
+The system should capture meaningful activity data rather than relying exclusively on a binary completion state.
+
+These principles became more than statements in a document. They helped me decide which features belonged in the MVP and which ones could wait.
+
+---
+
+## One important decision: a curated habit catalog
+
+One of the earliest product decisions was how users would create their routines.
+
+I could have allowed everyone to create completely custom habits with arbitrary targets, units, and schedules.
+
+Instead, I chose a curated habit catalog for the MVP.
+
+Users browse predefined habits and adopt the ones they want to include in their personal routine.
+
+Why?
+
+Because letting users define anything sounds flexible, but it also introduces complexity. Different definitions for similar habits can make validation, activity tracking, and progress calculations harder to reason about.
+
+With a curated catalog, each habit has a canonical definition, including its target type, unit, and schedule. A user adopts that habit into their own routine without changing the shared definition.
+
+It gives the application a more predictable foundation.
+
+This was one of my first reminders that product development involves trade-offs. More flexibility isn't always better, especially when you're trying to build a focused first version.
+
+---
+
+## Planning the build in phases
+
+Once the requirements were established, I broke development into phases.
+
+I wanted each phase to have a clear purpose and a set of acceptance criteria, rather than letting the scope expand every time I came up with a new idea.
+
+The implementation gradually brought together the application's foundation, its data model, the habit-management workflow, activity tracking, progress functionality, and the final production setup.
+
+The important part was the dependency between those pieces.
+
+Progress calculations are only useful when activity records are reliable. Activity records are only useful when habits are modeled correctly. And all of that depends on authentication, authorization, and a database that preserves the right relationships.
+
+So I approached Happit as a sequence of connected systems rather than a collection of independent screens.
+
+**The objective was to make each layer dependable before building more complexity on top of it.**
+
+---
+
+## Choosing the stack
+
+For Happit, I decided to use TypeScript across the frontend and backend.
+
+I'd already been working with React and Node.js, so this was an opportunity to use that experience to build something more complete.
+
+The stack became:
+
+| Layer | Technology |
+|---|---|
+| Frontend | React, Vite, TypeScript |
+| Routing and UI | React Router, Tailwind CSS, Lucide React, Motion |
+| Backend | Node.js, Express, TypeScript |
+| Validation | Zod |
+| Database | PostgreSQL |
+| ORM and migrations | Drizzle ORM, Drizzle Kit |
+| Testing | Vitest, Testing Library, Supertest |
+| Local development | Docker Compose |
+| Frontend deployment | Vercel |
+| API deployment | Render |
+| Production database | Neon PostgreSQL |
+
+I also organized the project as an npm-workspaces monorepo.
+
+The repository contains separate applications for the web frontend and API, while sharing one repository and a root-level development workflow.
+
+That gave me a clear separation between the client and server without making local development unnecessarily complicated.
+
+---
+
+## Building the foundation: the database and API
+
+Before a habit tracker can show meaningful progress, it needs a reliable way to represent what users do.
+
+That made the data model one of the most important parts of the project.
+
+The core schema includes:
+
+- **Users** for account ownership.
+- **Sessions** for authenticated access.
+- **Habits** for canonical catalog definitions.
+- **User habits** for the habits each user has adopted.
+- **Activities** for the work users record against their habits.
+
+The distinction between a catalog habit and an adopted habit is particularly important.
+
+The catalog describes what a habit is. The user-habit relationship describes which habits belong to an individual's routine and how that routine is managed.
+
+Activities then record the work associated with those adopted habits.
+
+This structure lets Happit preserve a consistent catalog while keeping each user's routine separate.
+
+### Why PostgreSQL and Drizzle?
+
+I chose PostgreSQL for persistent, relational data and Drizzle ORM for typed database access and schema management.
+
+Drizzle also gave me a migration workflow, so changes to the schema could be represented as versioned SQL rather than being applied informally.
+
+I used Docker Compose to run PostgreSQL locally. That made it easier to develop and test the backend against a real database environment.
+
+The result was a foundation that could support authentication, habit management, activity logging, and the progress features built on top of them.
+
+---
+
+## Building the habit-management workflow
+
+With the core data model in place, I could build the first meaningful user workflow.
+
+A user should be able to browse the habit catalog, adopt a habit, view their active routine, reorder habits, and manage the habits they've adopted.
+
+That sounds simple, but there are several rules to enforce.
+
+A user shouldn't be able to modify another user's routine. Archived habits shouldn't behave like active ones. Reordering should preserve the intended order. And the frontend shouldn't be trusted to enforce business rules on its own.
+
+I organized the API into feature modules, with route handlers responsible for HTTP interactions and service modules handling the relevant business logic.
+
+The frontend communicates with the API instead of accessing the database directly.
+
+That separation keeps the application easier to reason about and gives the backend control over validation, authorization, and data changes.
+
+It also made it easier to test the behavior of individual features without depending entirely on the UI.
+
+---
+
+## The core of Happit: recording real activity
+
+This was the part where the original product philosophy became an actual implementation.
+
+I wanted users to record activities in two ways:
+
+**1. Timer-based tracking**
+
+Users can start a timer when they begin an activity and record the work they have done.
+
+**2. Manual logging**
+
+Users can enter an activity directly when they don't need a running timer.
+
+Different habits can have different target types and units, so the API needs to validate the recorded information against the relevant habit definition.
+
+For example, a duration-based habit needs duration information, while a repetition-based activity represents a different kind of measurement.
+
+I also wanted activity history to be useful beyond the moment an entry is created. The supported history workflows allow users to review and manage their recorded activities.
+
+### Preventing duplicate activity records
+
+Another detail worth handling was duplicate submissions.
+
+A request can sometimes be retried because of a network issue, a repeated interaction, or another unexpected condition.
+
+If the same activity is accidentally recorded twice, the user's history becomes unreliable.
+
+Happit uses idempotency protection for activity creation to reduce the risk of duplicate records from repeated submissions.
+
+It's not the kind of feature that makes for an impressive screenshot, but it's the kind of engineering detail that matters in an application that stores personal activity data.
+
+**The data needs to be trustworthy before the product can provide useful feedback.**
+
+---
+
+## Turning activity into progress
+
+Once users can record activity reliably, the next question is how to make that information useful.
+
+A list of activity records is valuable, but it doesn't always make patterns obvious.
+
+That's where the progress and history experience comes in.
+
+Happit includes a dashboard and activity-history views that help users understand what they've been working on and how consistently they've been showing up. Progress visualizations, including heatmap-style history where available, make activity patterns easier to scan.
+
+I wanted the dashboard to answer three questions quickly:
+
+- What should I do today?
+- What have I completed?
+- How am I doing overall?
+
+The goal wasn't to turn every interaction into a score.
+
+It was to give users enough information to understand their behavior and make better decisions about their routines.
+
+This also created a foundation for future features. Any progression system we introduce later should build on meaningful activity records rather than inventing progress disconnected from what the user actually did.
+
+---
+
+## Designing the experience
+
+I didn't want Happit to look like a generic productivity dashboard.
+
+The visual direction was deliberately minimal, premium, and dark.
+
+The interface uses near-black backgrounds, slightly lighter surfaces, subtle borders, restrained rounded corners, and purple as the primary accent.
+
+Typography also plays a role in the visual identity, with distinct type choices for branding, interface text, and numeric or timer-oriented information.
+
+I tried to keep the interface focused on the task at hand.
+
+Habit tracking already requires users to return to the application regularly. The UI shouldn't create more work than necessary.
+
+That meant paying attention to the less glamorous details too:
+
+- Loading states
+- Empty states
+- Error feedback
+- Responsive layouts
+- Direct navigation to application routes
+- Clear interactions for recording and reviewing activities
+
+A design can look excellent in a static mockup but still feel frustrating when real data, loading delays, and errors enter the picture.
+
+The goal was to make the actual application feel as deliberate as the visual design.
+
+---
+
+## Testing the application instead of just running it
+
+As the project grew, I needed a way to catch regressions without relying entirely on manual testing.
+
+I used Vitest for automated tests, Testing Library for frontend behavior, and Supertest for API-level testing.
+
+The checks covered the important parts of the application, including authentication, habit management, activity validation, and the relevant user workflows.
+
+I also added project-wide quality commands for linting, TypeScript checks, tests, and builds.
+
+One thing I learned is that a test failure doesn't always mean the application code is wrong.
+
+Database-dependent tests, for example, need the expected database to be available and correctly configured. A connection failure can be an environment problem rather than a regression in the application itself.
+
+That distinction matters because tests are only useful when you understand what they're actually verifying.
+
+I treated testing as part of the development process, not a final checkbox before deployment.
+
+---
+
+## Taking Happit to production
+
+Building the application locally was one milestone.
+
+Making it available on the internet was another.
+
+I wanted Happit to be accessible through a proper domain, with the frontend, API, and database deployed as separate services.
+
+The production architecture became:
+
+- **Frontend:** Vercel
+- **Backend API:** Render
+- **Database:** Neon PostgreSQL
+- **Domain:** [happit.online](https://happit.online)
+
+The browser communicates with the deployed frontend, which makes requests to the API. The API connects to PostgreSQL for persistent data.
+
+The frontend's API URL is configured through an environment variable, while the backend uses its own configuration for database access, sessions, and allowed frontend origins.
+
+### Deployment came with its own problems
+
+Getting three services to work together introduces failure points that don't necessarily appear during local development.
+
+The database connection must work in the deployed environment. The API must allow requests from the correct frontend origin. Authentication cookies must behave correctly across the deployed domains. And the frontend must handle direct navigation and page refreshes on nested routes.
+
+I had to work through deployment configuration, database migrations, CORS settings, session behavior, and frontend routing before the complete production flow worked as intended.
+
+I also verified the health endpoint and tested the core user flows against the deployed application.
+
+One lesson from this stage was that deployment isn't just the final command you run after writing code.
+
+**Production is another environment with its own architecture, configuration, and failure modes.**
+
+A feature isn't truly finished just because it works on localhost.
+
+---
+
+## Making Happit installable
+
+I also wanted Happit to feel convenient to return to.
+
+That led to its Progressive Web App (PWA) support.
+
+On supported devices and browsers, users can install Happit from the website and launch it from their home screen in an app-like window.
+
+That means someone can access the habit tracker without going through a traditional app-store installation.
+
+The service worker also supports caching parts of the application shell.
+
+There is an important limitation, though: Happit is not a fully offline-first application. Authentication, fresh server data, and activity submissions still require a network connection. An offline activity queue with synchronization and conflict resolution is a possible future improvement, not something I claim the current version already provides.
+
+I prefer being clear about those boundaries rather than describing a feature as more complete than it is.
+
+---
+
+## The architecture today
+
+At a high level, Happit's request flow looks like this:
+
+\`\`\`text
+Browser / Installable PWA
+          |
+          v
+React + Vite frontend
+          |
+          | HTTPS / REST API
+          v
+Express + TypeScript API
+          |
+          v
+Feature modules and services
+          |
+          v
+Drizzle ORM
+          |
+          v
+PostgreSQL
+\`\`\`
+
+The frontend handles presentation and user interactions.
+
+The API handles request validation, authentication and authorization, feature logic, and coordination with the database.
+
+Drizzle provides the typed database access layer, while PostgreSQL stores the application's persistent data.
+
+The separation gives each part a clear responsibility without adding architectural layers that the current implementation doesn't need.
+
+It also leaves room to expand the product while keeping the core request flow understandable.
+
+---
+
+## What I learned from building Happit
+
+This project taught me a lot more than how to connect React to an Express API.
+
+### 1. Product decisions affect the data model
+
+Choosing a curated catalog instead of arbitrary user-created habits wasn't just a UI decision. It shaped how habits, user-habit relationships, and activities needed to be represented.
+
+### 2. A clear scope makes a project easier to finish
+
+It's easy to keep adding ideas to a product. Writing a PRD and dividing the work into phases helped me distinguish the features needed for the MVP from features that could wait.
+
+### 3. Data integrity matters more than visual polish alone
+
+A beautiful progress dashboard is only useful if the underlying activity records are correct. Validation, authorization, database constraints, and duplicate-submission protection all contribute to that trust.
+
+### 4. Production introduces a different class of problems
+
+Local development doesn't fully reproduce cross-origin sessions, hosting configuration, production database access, DNS, and route-refresh behavior. Those problems require their own testing and debugging.
+
+### 5. Finishing a project means more than making it work once
+
+A production application needs documentation, repeatable setup instructions, migrations, quality checks, and a clear understanding of what is and isn't implemented.
+
+The biggest lesson for me was that **building a product is as much about making deliberate decisions as it is about writing code.**
+
+---
+
+## What's next for Happit?
+
+The current version focuses on getting the fundamentals right: accounts, a curated habit catalog, personal habit management, activity tracking, history, progress views, and a working production deployment.
+
+But there is still plenty of room to grow.
+
+Here are some of the directions I'd like to explore in future phases.
+
+### Points and progression
+
+A target-based points system could reward meaningful activity and make progress more tangible.
+
+I also want to preserve point transactions and history rather than storing only a changing total. That would make the system easier to audit and help users understand where their progress comes from.
+
+### Seasons and challenges
+
+Seasons could introduce a shared timeframe for working toward goals. Challenges could give users a structured way to pursue a target over a period of time.
+
+These systems would need to support consistency without making users feel punished for missing a day.
+
+### Clans and social accountability
+
+Eventually, I would like to explore clans and cooperative challenges.
+
+The interesting question isn't how to create another leaderboard. It's how to make social features encourage people to show up for themselves and support each other without turning habit-building into unhealthy competition.
+
+### Reminders and notifications
+
+Thoughtful reminders could help users return to their routines at useful times.
+
+I'd want these to remain configurable and purposeful rather than becoming another source of notification fatigue.
+
+### Better offline support and analytics
+
+A more capable offline experience could let users record activities without a connection and synchronize them later, with careful handling of duplicate submissions and conflicts.
+
+Additional analytics could also help users identify patterns in their activity over longer periods.
+
+These are future possibilities, not features that are all available today. I'll introduce them in stages, with each addition earning its place in the product.
+
+**The goal is to make Happit more useful without making it more complicated than it needs to be.**
+
+---
+
+## Final thoughts
+
+Happit started with a simple question:
+
+What would a habit tracker look like if it focused more on sustainable consistency and less on perfect streaks?
+
+Answering that question required much more than building a few screens.
+
+I had to define the product, establish a data model, implement authentication, build the habit and activity workflows, create progress views, test the application, and connect everything to a production environment.
+
+There were plenty of smaller decisions along the way, from choosing how users adopt habits to handling duplicate activity submissions and configuring authentication across deployed services.
+
+And eventually, all those pieces came together into a working application.
+
+**Happit is now live at [happit.online](https://happit.online).**
+
+I'm proud of reaching this stage, but I'm also treating it as a foundation rather than a finish line.
+
+There are more features to explore, more engineering decisions to make, and more opportunities to improve the experience.
+
+For now, the most important thing is that the original idea has become something real — an application people can open, use, and return to.
+
+And that is what makes building side projects so rewarding.
+
+You start with a question.
+
+You make a series of decisions.
+
+You work through the problems you didn't anticipate.
+
+And eventually, you have something that didn't exist before.
+
+**That's Happit: built one phase at a time, with consistency at the center.**`,
+  },
 ];
